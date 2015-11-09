@@ -1,15 +1,11 @@
-(function(win, doc) {
-'use strict';
+import {Tweet} from './tweet';
+import {utils} from './utils';
 
-var Tweet = using('tweet');
-var utils = using('utils');
-var appReady = false;
+const win = window;
+const doc = document;
 
 function main() {
   win.removeEventListener('load', main, false);
-  if (appReady) {
-    return;
-  }
 
   var resizeTimer = 0;
   var listEl = utils.getId('list');
@@ -109,8 +105,6 @@ function main() {
     win.addEventListener('scroll', windowScroll);
     win.addEventListener('resize', windowResize);
   })();
-
-  appReady = true;
 }
 
 if (doc.readyState !== 'complete') {
@@ -118,4 +112,3 @@ if (doc.readyState !== 'complete') {
 } else {
   main.call(win);
 }
-})(window, document);

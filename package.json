@@ -14,6 +14,8 @@
     "twitter": "^1.2.1"
   },
   "devDependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^12.0.1",
     "glob": "^5.0.14",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
@@ -23,6 +25,14 @@
     "grunt-jscs": "^2.1.0",
     "grunt-karma": "^0.12.1",
     "grunt-uglify-amd": "^0.5.5",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^1.12.0",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.1",
@@ -34,9 +44,13 @@
     "karma-script-launcher": "^0.1.0",
     "karma-sourcemap-loader": "^0.3.4",
     "karma-story-reporter": "^0.3.1",
-    "phantomjs": "^1.9.18"
+    "phantomjs": "^1.9.18",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-    "test" : "grunt test"
+    "test": "grunt test",
+    "compile_ui_debug": "browserify static/js/src/main.js -t babelify --outfile static/js/p4.js -d",
+    "compile_ui": "browserify static/js/src/main.js -t babelify --outfile static/js/p4.js"
   }
 }

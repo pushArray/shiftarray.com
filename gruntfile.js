@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     less: {
       dist: {
         files: {
-          './static/css/p4.css': './static/css/default.less'
+          './static/css/p4.css': './static/css/less/all.less'
         },
         options: {
           compress: true

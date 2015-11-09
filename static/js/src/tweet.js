@@ -1,25 +1,21 @@
-provide('tweet', function() {
-  'use strict';
+import Mustache from '../lib/mustache';
+import {utils} from './utils';
 
-  var doc = document;
-  var html = doc.documentElement;
-  var utils = using('utils');
+const html = document.documentElement;
 
+export class Tweet {
   /**
    * Tweet constructor function.
    * @param {SimpleTweet} data Tweet data object.
    * @param {Element} parentEl Parent element where Tweet instance element will be attached.
    * @param {string} template Template used to create Tweet instance DOM.
-   * @constructor
    */
-  function Tweet(data, parentEl, template) {
+  constructor(data, parentEl, template) {
     /** @private {SimpleTweet} */
-    this.data_ = data;
+    this.data = data;
 
     /** @public {Element} */
-    this.element = Tweet.createDom_(template, parentEl, data);
-
-    Object.seal(this);
+    this.element = Tweet.createDOM(template, parentEl, data);
   }
 
   /**
@@ -27,10 +23,9 @@ provide('tweet', function() {
    * @param {string} template - Template from which Tweet DOM will be created.
    * @param {Element} parent - Parent element.
    * @param {SimpleTweet} data - Tweet data.
-   * @return {Element} Tweet DOM element.
-   * @private @static @const
+   * @returns {Element} Tweet DOM element.
    */
-  Tweet.createDom_ = function(template, parent, data) {
+  static createDOM(template, parent, data) {
     data.text = utils.replaceHtmlEntites(data.text);
     data.timestamp = utils.timeAgo(data.timestamp);
     var el = utils.createNode('div');
@@ -39,49 +34,44 @@ provide('tweet', function() {
     parent.style.borderColor = data.profileColor;
     parent.appendChild(el);
     return el;
-  };
+  }
 
   /**
    * Creates and returns container element for tweet line.
-   * @return {Element}
-   * @private
+   * @returns {Element}
    */
-  Tweet.prototype.createLine_ = function() {
+  static createLine() {
     var el = utils.createNode('div');
     el.setAttribute('class', 'line inline');
     return el;
-  };
+  }
 
   /**
    * Renders Tweet text elements. Tweet element has to be attached to DOM.
    */
-  Tweet.prototype.render = function() {
+  render() {
     if (!html.contains(this.element)) {
       throw new Error('Cannot render Tweet unless element is part of DOM');
     }
 
     /** @type {SimpleTweet} */
-    var data = this.data_;
+    var data = this.data;
     var text = data.text.replace(/(\n|\r)/gm, ' ');
     /** @type {TweetEntity} */
     var entities = data.entities;
     var urls = entities.urls;
     var hasURLs = !!urls.length;
-    var i = 0;
-    var u;
     if (hasURLs) {
-      for (; i < urls.length; i++) {
-        u = urls[i];
-        text = text.replace(u.url, u.display_url);
-      }
+      urls.forEach(url => {
+        text = text.replace(url.url, url.display_url);
+      });
     }
 
     var hasMeds = !!entities.media && !!entities.media.length;
     if (hasMeds) {
-      for (i = 0; i < entities.media.length; i++) {
-        u = entities.media[i];
-        text = text.replace(u.url, '');
-      }
+      entities.media.forEach(media => {
+        text = text.replace(media.url, '');
+      });
     }
 
     var fontSize = 36;
@@ -95,12 +85,11 @@ provide('tweet', function() {
     var maxLineLen = 26;
     var minLineLen = 8;
     var testStr = '';
-    var currLine = this.createLine_();
+    var currLine = Tweet.createLine();
     var linesArr = [lineEl.appendChild(currLine)];
     var wordsArr = text.split(' ');
-    var l = wordsArr.length;
-    for (i = 0; i < l; i++) {
-      var word = wordsArr[i];
+    for (let i = 0, l = wordsArr.length; i < l; i++) {
+      let word = wordsArr[i];
       if (!word) {
         continue;
       }
@@ -109,13 +98,13 @@ provide('tweet', function() {
       testStr = lineStr + ' ' + word;
       testStr = testStr.trim();
       currLine.textContent = testStr;
-      var lastWord = i === l - 1;
+      let lastWord = i === l - 1;
       if (testStr.length > maxLineLen) {
         if (lineStr.length < minLineLen || lastWord && word.length < minLineLen) {
           lineStr = testStr;
         } else {
           currLine.textContent = lineStr.trim();
-          currLine = this.createLine_();
+          currLine = Tweet.createLine();
           linesArr.push(lineEl.appendChild(currLine));
           lineStr = '';
           i--;
@@ -124,63 +113,51 @@ provide('tweet', function() {
         lineStr = testStr;
       }
     }
-    var n = linesArr.length;
-    var s = 1;
-    var w = 0;
-    var h = 0;
-    for (i = 0; i < n; i++) {
-      l = linesArr[i];
-      l.style.lineHeight =
-      l.style.fontSize = fontSize * parentWidth / l.offsetWidth + 'px';
-      l.style.zIndex = n - i;
-      s = parentWidth / l.offsetWidth;
+
+    var lineCount = linesArr.length;
+    linesArr.forEach((line, index) => {
+      line.style.lineHeight =
+        line.style.fontSize = fontSize * parentWidth / line.offsetWidth + 'px';
+      line.style.zIndex = lineCount - index;
+      let s = parentWidth / line.offsetWidth;
       if (s !== 1) {
-        w = l.offsetWidth;
-        h = l.offsetHeight;
-        l.style[utils.cssPrefix.css + 'transform'] = l.style.transform = 'matrix(' + s + ',0,0,' +
-          s + ',' + s * (parentWidth - w) * 0.5 + ',' + (h - s * h) + ')';
+        let w = line.offsetWidth;
+        let h = line.offsetHeight;
+        let tx = s * (parentWidth - w) * 0.5;
+        let ty = h - s * h;
+        line.style[utils.cssPrefix.css + 'transform'] =
+          line.style.transform = `matrix(${s}, 0, 0, ${s}, ${tx}, ${ty}`;
       }
+      line.setAttribute('class', 'line');
+    });
 
-      l.setAttribute('class', 'line');
-    }
-
-    var content = '';
     var linkColor = data.profileColor;
     if (hasURLs) {
-      for (i = 0; i < urls.length; i++) {
-        u = urls[i];
-        testStr = utils.limitString(u.display_url, maxLineLen);
-        content = '<a style="color:' + linkColor + ';" href="' + u.expanded_url + '">' +
-          testStr + '</a>';
-        lineEl.innerHTML = lineEl.innerHTML.replace(testStr, content);
-      }
+      urls.forEach(url => {
+        var str = utils.limitString(url.display_url, maxLineLen);
+        var content = `<a style="color:${linkColor};" href="${url.expanded_url}">${str}</a>`;
+        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+      });
     }
 
     var userMentions = entities.user_mentions;
-    var hasUsrs = !!userMentions.length;
-    if (hasUsrs) {
-      for (i = 0; i < userMentions.length; i++) {
-        u = userMentions[i];
-        testStr = utils.limitString('@' + u.screen_name, maxLineLen);
-        content = '<a style="color:' + linkColor + ';" href="//twitter.com/' +
-          u.screen_name + '">' + testStr + '</a>';
-        lineEl.innerHTML = lineEl.innerHTML.replace(testStr, content);
-      }
+    if (!!userMentions.length) {
+      userMentions.forEach(mention => {
+        var str = utils.limitString('@' + mention.screen_name, maxLineLen);
+        var content =
+          `<a style="color:${linkColor};" href="//twitter.com/${mention.screen_name}">${str}</a>`;
+        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+      });
     }
 
     var hashTags = entities.hashtags;
-    var hasHash = !!hashTags.length;
-    if (hasHash) {
-      for (i = 0; i < hashTags.length; i++) {
-        u = hashTags[i];
-        testStr = utils.limitString('#' + u.text, maxLineLen);
-        content = '<a style="color:' + linkColor + ';" href="//twitter.com/search?q=%23' +
-          u.text + '&src=hash">' + testStr + '</a>';
-        lineEl.innerHTML = lineEl.innerHTML.replace(testStr, content);
-      }
+    if (!!hashTags.length) {
+      hashTags.forEach(hash => {
+        var str = utils.limitString('#' + hash.text, maxLineLen);
+        var content = `<a style="color:${linkColor};"
+                          href="//twitter.com/search?q=%23${hash.text}&src=hash">${str}</a>`;
+        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+      });
     }
-  };
-
-  Object.seal(Tweet);
-  return Tweet;
-});
+  }
+}
