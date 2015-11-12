@@ -14,28 +14,6 @@ html(lang="en-US")
                 families: ['Lato:400,900:latin']
             }
         });
-    script(type='text/html', id='tweet-template').
-      <div class="tweet">
-        <a href="{{url}}"
-           target="_self"
-           class="user-container"
-           style="color: {{profileColor}}">
-        <div class="user-avatar"
-             style="background-image: url({{userImage}}); background-color: {{profileColor}}">
-        </div>
-        <div class="flex-box no-wrap">
-            <div class="username">
-                {{username}}
-            </div>
-            <div class="screenname">
-                @{{screenName}}</div>
-            <div class="timestamp">
-                {{timestamp}}
-            </div>
-        </div>
-        </a>
-        <div class="text">{{body}}</div>
-      </div>
     script(type='text/javascript' src='/js/p4.js')
   body.busy
     #list.list

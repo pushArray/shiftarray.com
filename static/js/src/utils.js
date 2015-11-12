@@ -70,7 +70,7 @@ utils.timeAgo = function(date) {
   if (typeof date === 'string') {
     date = new Date(date.replace(timeMatchRegExp, '$1 $2 $4 $3 UTC'));
   }
-  var diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
+  const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
   const periods = {
       decade: 315360000,
       year: 31536000,

@@ -1,7 +1,5 @@
 .idea/
 node_modules/
 static/images/twitter/
-static/tests/bin
 static/css/p4.css
-static/js/p4.js
-static/js/p4.js.map
+static/js/p4.js*

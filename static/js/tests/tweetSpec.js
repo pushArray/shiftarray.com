@@ -1,14 +1,8 @@
+import {Tweet} from '../src/tweet';
+
 describe('tweet tests', function() {
   'use strict';
-
-  var Tweet = using('tweet');
   var tweet;
-  var tweetTemplate = '<div class="tweet">' +
-    '<a href="{{url}}" target="_self" class="user-container" style="color: {{profileColor}}">' +
-    '<div class="user-avatar" style="background-image: url({{userimage}}); background-color: {{profileColor}}"></div>' +
-    '<div class="flex-box no-wrap"><div class="username">{{username}}</div>' +
-    '<div class="screenname">@{{screenName}}</div><div class="timestamp">{{timestamp}}</div></div></a>' +
-    '<div class="text">{{text}}</div></div>';
   var tweetData = {
     "id": "663161444813279232",
     "username": "Alex Logashov",
@@ -37,7 +31,7 @@ describe('tweet tests', function() {
   };
 
   beforeEach(function() {
-    tweet = new Tweet(tweetData, document.body, tweetTemplate);
+    tweet = new Tweet(tweetData, document.body);
   });
 
   afterEach(function() {

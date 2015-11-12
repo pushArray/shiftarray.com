@@ -1,7 +1,7 @@
 module.exports = function(config) {
   config.set({
     // base path, that will be used to resolve files and exclude
-    basePath: '../',
+    basePath: './',
 
     preprocessors: {
       './bin/p4.js': ['sourcemap']
@@ -11,7 +11,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: ['./bin/p4.js'],
+    files: ['static/js/src/**/*.js'],
 
     // list of files to exclude
     exclude: [],

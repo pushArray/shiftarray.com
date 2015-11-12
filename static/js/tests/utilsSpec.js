@@ -1,14 +1,13 @@
+import {utils} from '../src/utils';
+
 describe('utils tests', function() {
   'use strict';
-
-  var utils = using('utils');
 
   it('createNode', function() {
     var el = utils.createNode('div', {
       'id': 'foo',
       'class': 'my class'
     });
-
     expect(el.nodeName).toBe('DIV');
     expect(el.nodeType).toBe(Node.ELEMENT_NODE);
     expect(el.getAttribute('id')).toBe('foo');

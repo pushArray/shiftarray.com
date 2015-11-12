@@ -1,4 +1,4 @@
-import Mustache from '../lib/mustache';
+import {Template} from './template';
 import {utils} from './utils';
 
 const html = document.documentElement;
@@ -7,33 +7,16 @@ export class Tweet {
   /**
    * Tweet constructor function.
    * @param {SimpleTweet} data Tweet data object.
-   * @param {Element} parentEl Parent element where Tweet instance element will be attached.
-   * @param {string} template Template used to create Tweet instance DOM.
+   * @param {Element} parent Parent element where Tweet instance element will be attached.
    */
-  constructor(data, parentEl, template) {
-    /** @private {SimpleTweet} */
+  constructor(data, parent) {
+    /** @type {SimpleTweet} */
     this.data = data;
-
-    /** @public {Element} */
-    this.element = Tweet.createDOM(template, parentEl, data);
-  }
-
-  /**
-   * Creates initial Tweet DOM structure.
-   * @param {string} template - Template from which Tweet DOM will be created.
-   * @param {Element} parent - Parent element.
-   * @param {SimpleTweet} data - Tweet data.
-   * @returns {Element} Tweet DOM element.
-   */
-  static createDOM(template, parent, data) {
-    data.text = utils.replaceHtmlEntites(data.text);
-    data.timestamp = utils.timeAgo(data.timestamp);
-    var el = utils.createNode('div');
-    el.innerHTML = Mustache.render(template.trim(), data);
-    el = el.firstChild;
-    parent.style.borderColor = data.profileColor;
-    parent.appendChild(el);
-    return el;
+    /** @type {Element} */
+    this.parent = parent;
+    /** @type {Template} */
+    this.template = new Template(data);
+    this.createDOM();
   }
 
   /**
@@ -44,6 +27,23 @@ export class Tweet {
     var el = utils.createNode('div');
     el.setAttribute('class', 'line inline');
     return el;
+  }
+
+  /**
+   * Creates initial Tweet DOM structure.
+   * @returns {Element} Tweet DOM element.
+   */
+  createDOM() {
+    let data = this.data;
+    this.element = utils.createNode('div', {
+      'class': 'tweet'
+    });
+    this.element.innerHTML = this.template.get();
+    data.text = utils.replaceHtmlEntites(data.text);
+    data.timestamp = utils.timeAgo(data.timestamp);
+    this.parent.style.borderColor = this.data.profileColor;
+    this.parent.appendChild(this.element);
+    return this.element;
   }
 
   /**
@@ -60,16 +60,13 @@ export class Tweet {
     /** @type {TweetEntity} */
     var entities = data.entities;
     var urls = entities.urls;
-    var hasURLs = !!urls.length;
-    if (hasURLs) {
-      urls.forEach(url => {
-        text = text.replace(url.url, url.display_url);
-      });
-    }
+    urls.forEach(url => {
+      text = text.replace(url.url, url.display_url);
+    });
 
-    var hasMeds = !!entities.media && !!entities.media.length;
-    if (hasMeds) {
-      entities.media.forEach(media => {
+    var media = entities.media;
+    if (Array.isArray(media)) {
+      media.forEach(media => {
         text = text.replace(media.url, '');
       });
     }
@@ -132,32 +129,32 @@ export class Tweet {
     });
 
     var linkColor = data.profileColor;
-    if (hasURLs) {
-      urls.forEach(url => {
-        var str = utils.limitString(url.display_url, maxLineLen);
-        var content = `<a style="color:${linkColor};" href="${url.expanded_url}">${str}</a>`;
-        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
-      });
-    }
-
-    var userMentions = entities.user_mentions;
-    if (!!userMentions.length) {
-      userMentions.forEach(mention => {
-        var str = utils.limitString('@' + mention.screen_name, maxLineLen);
-        var content =
-          `<a style="color:${linkColor};" href="//twitter.com/${mention.screen_name}">${str}</a>`;
-        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
-      });
-    }
-
-    var hashTags = entities.hashtags;
-    if (!!hashTags.length) {
-      hashTags.forEach(hash => {
-        var str = utils.limitString('#' + hash.text, maxLineLen);
-        var content = `<a style="color:${linkColor};"
-                          href="//twitter.com/search?q=%23${hash.text}&src=hash">${str}</a>`;
-        lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
-      });
-    }
+    urls.forEach(url => {
+      var str = utils.limitString(url.display_url, maxLineLen);
+      var content = `
+        <a style="color:${linkColor};"
+           href="${url.expanded_url}">
+            ${str}
+        </a>`;
+      lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+    });
+    entities.user_mentions.forEach(mention => {
+      var str = utils.limitString('@' + mention.screen_name, maxLineLen);
+      var content = `
+        <a style="color:${linkColor};"
+           href="//twitter.com/${mention.screen_name}">
+            ${str}
+        </a>`;
+      lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+    });
+    entities.hashtags.forEach(hash => {
+      var str = utils.limitString('#' + hash.text, maxLineLen);
+      var content = `
+        <a style="color:${linkColor};"
+           href="//twitter.com/search?q=%23${hash.text}&src=hash">
+            ${str}
+        </a>`;
+      lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
+    });
   }
 }
