@@ -1,7 +1,35 @@
-export class Template {
+export default class Template {
+  /**
+   * Returns new instance of {@link Template}.
+   * @param {SimpleTweet} data
+   * @returns {Template}
+   */
+  static create(data) {
+    return new Template(data);
+  }
+
+  /**
+   * @param {SimpleTweet} data - Tweet data.
+   */
   constructor(data) {
     this.data = data;
-    this.template = `
+    this.template = this.parse();
+  }
+
+  /**
+   * Returns previously parsed string.
+   * @returns {string|*}
+   */
+  get() {
+    return this.template;
+  }
+
+  /**
+   * Recreates template string with latest {@link Template#data} changes.
+   * @returns {string}
+   */
+  parse() {
+    var template = `
       <a href="${this.data.url}"
          target="_self"
          class="user-container"
@@ -21,16 +49,10 @@ export class Template {
             </div>
         </div>
       </a>
-      <div class="text">${this.data.body}</div>`;
-
-    this.template = this.template.trim();
-  }
-
-  get() {
-    return this.template;
-  }
-
-  static create(data) {
-    return new Template(data);
+      <div class="text">
+        ${this.data.body}
+      </div>`;
+    this.template = template.trim();
+    return template;
   }
 }

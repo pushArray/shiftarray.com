@@ -1,6 +1,6 @@
-import {Tweet} from '../src/tweet';
+import Tweet from '../src/tweet';
 
-describe('tweet tests', function() {
+describe('tweet tests', () => {
   'use strict';
   var tweet;
   var tweetData = {
@@ -30,15 +30,15 @@ describe('tweet tests', function() {
     }
   };
 
-  beforeEach(function() {
+  beforeEach(() => {
     tweet = new Tweet(tweetData, document.body);
   });
 
-  afterEach(function() {
+  afterEach(() => {
     tweet = null;
   });
 
-  it('check DOM structure', function() {
+  it('check DOM structure', () => {
     var tweetElement = tweet.element;
     var statusUrl = tweetElement.querySelector('a.user-container');
     expect(statusUrl.href).toBe('https://twitter.com/' + tweetData.screenName + '/statuses/' + tweetData.id);
@@ -50,7 +50,7 @@ describe('tweet tests', function() {
     expect(textEl.textContent).toBe(tweetData.text);
   });
 
-  it('render tweet', function() {
+  it('render tweet', () => {
     tweet.render();
   });
 });

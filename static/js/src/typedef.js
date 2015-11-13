@@ -41,7 +41,7 @@
  *   symbols: Array,
  *   urls: Array<TweetUrls>,
  *   user_mentions: Array,
- *   media: Array<TweetMedia>
+ *   media: Array<TweetMedia>=
  * }} TweetEntity
  */
 

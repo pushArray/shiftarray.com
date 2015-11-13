@@ -1,9 +1,9 @@
-import {utils} from '../src/utils';
+import utils from '../src/utils';
 
-describe('utils tests', function() {
+describe('utils tests', () => {
   'use strict';
 
-  it('createNode', function() {
+  it('createNode', () => {
     var el = utils.createNode('div', {
       'id': 'foo',
       'class': 'my class'
@@ -14,16 +14,16 @@ describe('utils tests', function() {
     expect(el.getAttribute('class')).toBe('my class');
   });
 
-  it('replaceHtmlEntites', function() {
+  it('replaceHtmlEntities', () => {
     var html = '&lt;foo&gt;';
-    expect(utils.replaceHtmlEntites(html)).toBe('<foo>');
+    expect(utils.replaceHtmlEntities(html)).toBe('<foo>');
   });
 
-  it('timeAgo', function() {
+  it('timeAgo', () => {
     expect(utils.timeAgo(new Date(1970, 0, 1))).toBe('Jan 1, 1970');
   });
 
-  it('limitString', function() {
+  it('limitString', () => {
     var str = 'Lorem ipsum dolor sit amet';
 
     var limitedStr = utils.limitString(str, 6);

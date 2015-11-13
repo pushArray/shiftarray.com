@@ -1,5 +1,5 @@
-import {Tweet} from './tweet';
-import {utils} from './utils';
+import Tweet from './tweet';
+import utils from './utils';
 
 const win = window;
 const doc = document;
