@@ -4,20 +4,40 @@ module.exports = function(config) {
     basePath: './',
 
     preprocessors: {
-      './bin/p4.js': ['sourcemap']
+      'static/js/spec/**/*.spec.js': ['browserify']
     },
 
     // frameworks to use
-    frameworks: ['jasmine'],
+    frameworks: [
+      'browserify',
+      'jasmine'
+    ],
+
+    browserify: {
+      debug: true,
+      transform: [
+        'babelify',
+        'browserify-istanbul'
+      ]
+    },
 
     // list of files / patterns to load in the browser
-    files: ['static/js/src/**/*.js'],
-
-    // list of files to exclude
-    exclude: [],
+    files: [
+      'static/js/spec/**/*.spec.js'
+    ],
 
     // test results reporter to use
-    reporters: ['progress'],
+    reporters: [
+      'progress',
+      'coverage'
+    ],
+
+    coverageReporter: {
+      "reporters": [
+        {type: "text"},
+        {type: "text-summary"}
+      ]
+    },
 
     // web server port
     port: 9876,

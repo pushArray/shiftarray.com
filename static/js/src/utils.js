@@ -13,27 +13,11 @@ const htmlCharMap = {
 const getCSSPrefix = () => {
   var styles = win.getComputedStyle(doc.documentElement, '');
   var pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
-  styles.OLink === '' && ['', 'o'])[1];
-  var dom = 'WebKit|Moz|MS|O'.match(new RegExp('(' + pre + ')', 'i'))[1];
-  return {
-    dom: dom,
-    lowercase: pre,
-    css: '-' + pre + '-',
-    js: pre[0].toUpperCase() + pre.substr(1)
-  };
+    styles.OLink === '' && ['', 'o'])[1];
+  return '-' + pre + '-';
 };
 
 export default {
-  /**
-   * Object representing browser specific CSS prefix.
-   * Forked from http://davidwalsh.name/vendor-prefix
-   * @type {{
-   *     dom: string,
-   *     lowercase: string,
-   *     css: string,
-   *     js: string
-   *   }}
-   */
   cssPrefix: getCSSPrefix(),
 
   /**
@@ -42,8 +26,7 @@ export default {
    * @param {HTMLElement} element - Parent element.
    * @returns {NodeList}
    */
-  queryAll(str, element) {
-    element = element || doc;
+  queryAll(str, element = doc) {
     return element.querySelectorAll(str);
   },
 

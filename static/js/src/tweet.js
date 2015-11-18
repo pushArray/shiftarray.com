@@ -1,25 +1,7 @@
 import Template from './template';
 import utils from './utils';
 
-const html = document.documentElement;
-
 export default class Tweet {
-  /**
-   * @param {SimpleTweet} data Tweet data object.
-   * @param {Element} parent Parent element where Tweet instance element will be attached.
-   */
-  constructor(data, parent) {
-    /** @type {SimpleTweet} */
-    this.data = data;
-    this.data.text = utils.replaceHtmlEntities(data.text);
-    this.data.timestamp = utils.timeAgo(data.timestamp);
-    /** @type {Element} */
-    this.parent = parent;
-    /** @type {Template} */
-    this.template = new Template(data);
-    this.createDOM();
-  }
-
   /**
    * Creates and returns container element for tweet line.
    * @returns {Element}
@@ -31,26 +13,44 @@ export default class Tweet {
   }
 
   /**
+   * @param {SimpleTweet} data - Tweet data object.
+   * @param {Element} parent - Parent element where Tweet instance element will be attached.
+   */
+  constructor(data, parent) {
+    /** @type {SimpleTweet} */
+    this.data = data;
+    this.data.text = utils.replaceHtmlEntities(data.text);
+    this.data.timestamp = utils.timeAgo(data.timestamp);
+    /** @type {Element} */
+    this.parent = parent;
+    /** @type {Template} */
+    this.template = new Template(data);
+    /** @type {Element} */
+    this.element_ = this.createDOM();
+  }
+
+  get element() {
+    return this.element_;
+  }
+
+  /**
    * Creates initial Tweet DOM structure.
    * @returns {Element} Tweet DOM element.
    */
   createDOM() {
-    this.element = utils.createNode('div', {
+    var el = utils.createNode('div', {
       'class': 'tweet'
     });
-    this.element.innerHTML = this.template.get();
+    el.innerHTML = this.template.get();
     this.parent.style.borderColor = this.data.profileColor;
-    this.parent.appendChild(this.element);
-    return this.element;
+    this.parent.appendChild(el);
+    return el;
   }
 
   /**
    * Renders text line elements. Tweet element has to be part of the DOM.
    */
   render() {
-    if (!html.contains(this.element)) {
-      throw new Error('Cannot render Tweet unless element is part of DOM');
-    }
     var data = this.data;
     var text = data.text.replace(/(\n|\r)/gm, ' ');
     var {hashtags, urls, user_mentions: userMentions, media} = data.entities;
@@ -70,6 +70,11 @@ export default class Tweet {
     lineEl.style.fontSize = fontSize + 'px';
 
     var containerWidth = lineEl.offsetWidth;
+
+    if (+containerWidth === 0) {
+      throw new Error('Line container width must be greater than zero.');
+    }
+
     var lineStr = '';
     var maxLineLen = 26;
     var minLineLen = 8;
@@ -113,7 +118,7 @@ export default class Tweet {
         let h = line.offsetHeight;
         let tx = s * (containerWidth - w) * 0.5;
         let ty = h - s * h;
-        line.style[utils.cssPrefix.css + 'transform'] =
+        line.style[utils.cssPrefix + 'transform'] =
           line.style.transform = `matrix(${s}, 0, 0, ${s}, ${tx}, ${ty}`;
       }
       line.setAttribute('class', 'line');

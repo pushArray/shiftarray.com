@@ -8,36 +8,67 @@ const jshint = require('gulp-jshint');
 const jscs = require('gulp-jscs');
 const less = require('gulp-less');
 const minifyCSS = require('gulp-minify-css');
+const argv = require('yargs').argv;
+const Server = require('karma').Server;
+
+const isProduction = argv.production || false;
 
 gulp.task('js', function () {
   var b = browserify({
     entries: './static/js/src/main.js',
-    debug: true,
+    debug: !isProduction,
     transform: ['babelify']
   });
-
-  return b.bundle()
+  var dest = gulp.dest('./static/js/');
+  var pipe = b.bundle()
     .pipe(source('p4.js'))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(buffer());
+  if (!isProduction) {
+    return pipe
+      .pipe(sourcemaps.init({
+        loadMaps: true
+      }))
+      .pipe(uglify())
+      .pipe(sourcemaps.write('./'))
+      .pipe(dest);
+  }
+  return pipe
     .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./static/js/'));
+    .pipe(dest);
 });
 
 gulp.task('less', function() {
   return gulp.src('./static/css/less/p4.less')
     .pipe(less())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./static/css/'));
+    .pipe(gulp.dest('./static/css/'))
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./static/js/src/**/*.js')
+  return gulp.src([
+      './static/js/src/**/*.js',
+      './static/js/spec/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter())
+    .pipe(jshint.reporter('fail'))
     .pipe(jscs())
     .pipe(jscs.reporter())
+    .pipe(jscs.reporter('fail'));
 });
 
-gulp.task('build', ['lint', 'less', 'js']);
+gulp.task('test', function(done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('build', ['test', 'lint', 'less', 'js']);
+
+gulp.task('watch', function() {
+  gulp.watch([
+    'static/js/src/**/*.js',
+    'static/js/spec/**/*.js',
+    'static/css/less/*.less'
+  ], ['build']);
+});

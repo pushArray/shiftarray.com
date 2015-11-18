@@ -50,9 +50,9 @@ export default class Template {
         </div>
       </a>
       <div class="text">
-        ${this.data.body}
+        ${this.data.text}
       </div>`;
     this.template = template.trim();
-    return template;
+    return this.template;
   }
 }
