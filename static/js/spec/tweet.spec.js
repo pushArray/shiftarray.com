@@ -2,7 +2,6 @@ import Tweet from '../src/tweet';
 import sharedTestData from './sharedtestdata';
 
 describe('tweet tests', () => {
-  'use strict';
   var tweet;
   var tweetData;
 

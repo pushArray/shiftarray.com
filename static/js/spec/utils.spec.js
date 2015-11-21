@@ -1,8 +1,6 @@
 import utils from '../src/utils';
 
 describe('utils tests', () => {
-  'use strict';
-
   it('createNode', () => {
     var el = utils.createNode('div', {
       'id': 'foo',

@@ -1,6 +1,5 @@
 .idea/
-node_modules/
 static/images/twitter/
-static/css/p4.css
-static/js/p4.js*
+node_modules/
+static/bin/
 coverage/

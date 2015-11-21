@@ -1,6 +1,6 @@
 {
   "name": "shiftarray",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "shiftarray.com / pusharray.com source code.",
   "license": "MIT",
   "repository": {
@@ -20,6 +20,7 @@
     "glob": "latest",
     "gulp": "latest",
     "gulp-browserify": "latest",
+    "gulp-clean": "latest",
     "gulp-jscs": "latest",
     "gulp-jshint": "latest",
     "gulp-karma": "latest",
@@ -43,6 +44,6 @@
     "yargs": "latest"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "gulp test"
   }
 }

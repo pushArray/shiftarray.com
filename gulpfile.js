@@ -10,6 +10,7 @@ const less = require('gulp-less');
 const minifyCSS = require('gulp-minify-css');
 const argv = require('yargs').argv;
 const Server = require('karma').Server;
+const clean = require('gulp-clean');
 
 const isProduction = argv.production || false;
 
@@ -19,7 +20,7 @@ gulp.task('js', function () {
     debug: !isProduction,
     transform: ['babelify']
   });
-  var dest = gulp.dest('./static/js/');
+  var dest = gulp.dest('./static/bin/');
   var pipe = b.bundle()
     .pipe(source('p4.js'))
     .pipe(buffer());
@@ -38,10 +39,10 @@ gulp.task('js', function () {
 });
 
 gulp.task('less', function() {
-  return gulp.src('./static/css/less/p4.less')
+  return gulp.src('./static/css/less/all.less')
     .pipe(less())
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./static/css/'))
+    .pipe(gulp.dest('./static/bin/'))
 });
 
 gulp.task('lint', function() {
@@ -63,7 +64,14 @@ gulp.task('test', function(done) {
   }, done).start();
 });
 
-gulp.task('build', ['test', 'lint', 'less', 'js']);
+gulp.task('clean', function() {
+  return gulp.src('./static/bin/**/*')
+    .pipe(clean({
+      force: true
+    }));
+});
+
+gulp.task('build', ['lint', 'test', 'clean', 'less', 'js']);
 
 gulp.task('watch', function() {
   gulp.watch([
