@@ -14,7 +14,7 @@ const clean = require('gulp-clean');
 
 const isProduction = argv.production || false;
 
-gulp.task('js', function () {
+gulp.task('js', () => {
   var b = browserify({
     entries: './static/js/src/main.js',
     debug: !isProduction,
@@ -27,10 +27,9 @@ gulp.task('js', function () {
   if (!isProduction) {
     return pipe
       .pipe(sourcemaps.init({
-        loadMaps: true
-      }))
-      .pipe(uglify())
-      .pipe(sourcemaps.write('./'))
+          loadMaps: true
+        }))
+      .pipe(sourcemaps.write())
       .pipe(dest);
   }
   return pipe
@@ -38,14 +37,14 @@ gulp.task('js', function () {
     .pipe(dest);
 });
 
-gulp.task('less', function() {
+gulp.task('less', () => {
   return gulp.src('./static/css/less/all.less')
     .pipe(less())
     .pipe(minifyCSS())
     .pipe(gulp.dest('./static/bin/'))
 });
 
-gulp.task('lint', function() {
+gulp.task('lint', () => {
   return gulp.src([
       './static/js/src/**/*.js',
       './static/js/spec/**/*.js'])
@@ -57,26 +56,32 @@ gulp.task('lint', function() {
     .pipe(jscs.reporter('fail'));
 });
 
-gulp.task('test', function(done) {
+gulp.task('test', (done) => {
   new Server({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done).start();
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', () => {
   return gulp.src('./static/bin/**/*')
     .pipe(clean({
       force: true
     }));
 });
 
-gulp.task('build', ['lint', 'test', 'clean', 'less', 'js']);
-
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch([
     'static/js/src/**/*.js',
     'static/js/spec/**/*.js',
     'static/css/less/*.less'
   ], ['build']);
 });
+
+gulp.task('build', [
+  'lint',
+  'test',
+  'clean',
+  'less',
+  'js'
+]);
