@@ -46,8 +46,9 @@ gulp.task('less', () => {
 
 gulp.task('lint', () => {
   return gulp.src([
-      './static/js/src/**/*.js',
-      './static/js/spec/**/*.js'])
+        './static/js/src/**/*.js',
+        './static/js/spec/**/*.js'
+      ])
     .pipe(jshint())
     .pipe(jshint.reporter())
     .pipe(jshint.reporter('fail'))
@@ -58,16 +59,15 @@ gulp.task('lint', () => {
 
 gulp.task('test', (done) => {
   new Server({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
+    configFile: __dirname + '/karma.conf.js'
   }, done).start();
 });
 
 gulp.task('clean', () => {
   return gulp.src('./static/bin/**/*')
     .pipe(clean({
-      force: true
-    }));
+        force: true
+      }));
 });
 
 gulp.task('watch', () => {
