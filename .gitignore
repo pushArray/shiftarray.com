@@ -1,5 +1,5 @@
 .idea/
-node_modules/
 static/images/twitter/
-static/**/p4.*
-static/tests/bin
+node_modules/
+static/bin/
+coverage/

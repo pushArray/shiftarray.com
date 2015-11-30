@@ -12,9 +12,9 @@ For Twitter API to work ```TWITTER_CONSUMER_KEY```, ```TWITTER_CONSUMER_SECRET``
 
 Install dependencies and do initial build:
 ```
-npm install -g grunt-cli
+npm install -g gulp-cli
 npm install
-grunt build
+gulp build
 ```
 
 Run server on port 8080 as defined in ```server.js```:

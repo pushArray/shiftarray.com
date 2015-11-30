@@ -207,7 +207,7 @@ function getUserTimeline() {
       var dataLength = data.length;
       if (dataLength < minCount && restParams.lastCount !== dataLength) {
         restParams.count += minCount - data.length;
-        // FIXME: This will prevent prevent from loading min number of tweets in cases where there
+        // FIXME: This will prevent from loading min number of tweets in cases where there
         //        are too many replies with exclude_replies set to true.
         restParams.lastCount = dataLength;
         getUserTimeline();

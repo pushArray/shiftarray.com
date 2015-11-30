@@ -1,19 +1,24 @@
-provide('utils', function() {
-  'use strict';
+const win = window;
+const doc = document;
+const slice = Array.prototype.slice;
+const timeMatchRegExp = /^w+(w+)(d+)([d:]+)+0000(d+)$/;
+const htmlCharRegExp = /&(nbsp|amp|quot|lt|gt);/g;
+const htmlCharMap = {
+  'nbsp': ' ',
+  'amp': '&',
+  'quot': '\'',
+  'lt': '<',
+  'gt': '>'
+};
+const getCSSPrefix = () => {
+  var styles = win.getComputedStyle(doc.documentElement, '');
+  var pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
+    styles.OLink === '' && ['', 'o'])[1];
+  return '-' + pre + '-';
+};
 
-  var win = window;
-  var doc = document;
-  var utils = {};
-  var slice = Array.prototype.slice;
-  var htmlCharRegExp = /&(nbsp|amp|quot|lt|gt);/g;
-  var htmlCharMap = {
-    'nbsp': ' ',
-    'amp': '&',
-    'quot': '\'',
-    'lt': '<',
-    'gt': '>'
-  };
-  var timeMatchRegExp = /^w+(w+)(d+)([d:]+)+0000(d+)$/;
+export default {
+  cssPrefix: getCSSPrefix(),
 
   /**
    * Queries all elements by specified selector.
@@ -21,27 +26,26 @@ provide('utils', function() {
    * @param {HTMLElement} element - Parent element.
    * @returns {NodeList}
    */
-  utils.queryAll = function(str, element) {
-    element = element || doc;
+  queryAll(str, element = doc) {
     return element.querySelectorAll(str);
-  };
+  },
 
   /**
    * Queries DOM elements by id.
    * @param {string} id
    * @returns {Element}
    */
-  utils.getId = function(id) {
+  getId(id) {
     return doc.getElementById(id);
-  };
+  },
 
   /**
    * Creates HTML element.
    * @param {string} node - HTML element tag name.
-   * @param {Object} attrs - Map of element attributes.
+   * @param {Object<string, string|number|boolean>=} attrs - Map of element attributes.
    * @returns {Element}
    */
-  utils.createNode = function(node, attrs) {
+  createNode(node, attrs) {
     var nodeEl = doc.createElement(node);
     for (var attr in attrs) {
       if (attrs.hasOwnProperty(attr)) {
@@ -49,18 +53,18 @@ provide('utils', function() {
       }
     }
     return nodeEl;
-  };
+  },
 
   /**
    * Replaces HTML entities with HTML characters.
-   * @param {string} s - HTML string.
+   * @param {string} htmlString - HTML string.
    * @returns {string}
    */
-  utils.replaceHtmlEntites = function(s) {
-    return s.replace(htmlCharRegExp, function(match, entity) {
+  replaceHtmlEntities(htmlString) {
+    return htmlString.replace(htmlCharRegExp, (match, entity) => {
       return htmlCharMap[entity];
     });
-  };
+  },
 
   /**
    * Returns formatted date object as string.
@@ -68,50 +72,45 @@ provide('utils', function() {
    * @param {Date|string} date
    * @returns {string}
    */
-  utils.timeAgo = function(date) {
+  timeAgo(date) {
     if (typeof date === 'string') {
       date = new Date(date.replace(timeMatchRegExp, '$1 $2 $4 $3 UTC'));
     }
-    var diff = new Date().getTime() - date.getTime();
-    diff = parseInt(diff / 1000, 10);
-    var periods = {
-        decade: 315360000,
-        year: 31536000,
-        month: 2628000,
-        week: 604800,
-        day: 86400,
-        hour: 3600,
-        minute: 60,
-        second: 1
-      };
-    var months = [
-        'Jan', 'Feb', 'Mar',
-        'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep',
-        'Oct', 'Nov', 'Dec'
-      ];
-    var ret;
+    const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
+    const periods = {
+      decade: 315360000,
+      year: 31536000,
+      month: 2628000,
+      week: 604800,
+      day: 86400,
+      hour: 3600,
+      minute: 60,
+      second: 1
+    };
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var ret = '';
     if (diff > periods.month) {
       ret = months[date.getMonth()] + ' ' + date.getDate();
       if (date.getFullYear() !== new Date().getFullYear()) {
         ret += ', ' + String(date.getFullYear());
       }
-
-      return ret;
-    }
-    ret = '';
-    for (var prop in periods) {
-      if (periods.hasOwnProperty(prop)) {
-        var val = periods[prop];
-        if (diff >= val) {
-          var time = parseInt(diff / val);
-          ret += time + ' ' + (time > 1 ? prop + 's' : prop);
-          break;
+    } else {
+      for (let prop in periods) {
+        if (periods.hasOwnProperty(prop)) {
+          let val = periods[prop];
+          if (diff >= val) {
+            var time = parseInt(diff / val);
+            ret += time + ' ' + (time > 1 ? prop + 's' : prop);
+            break;
+          }
         }
       }
+      ret += ' ago';
     }
-    return ret + ' ago';
-  };
+
+    return ret;
+  },
 
   /**
    * Returns string truncated to the length specified.
@@ -119,35 +118,10 @@ provide('utils', function() {
    * @param {number} length
    * @returns {string}
    */
-  utils.limitString = function(str, length) {
+  limitString(str, length) {
     if (str.length <= length) {
       return str;
     }
     return str.substring(0, length - 3) + '...';
-  };
-
-  /**
-   * Returns an object representing browser specific CSS prefix.
-   * Forked from http://davidwalsh.name/vendor-prefix
-   * @type {{
-   *     dom: string,
-   *     lowercase: string,
-   *     css: string,
-   *     js: string
-   *   }}
-   */
-  utils.cssPrefix = function() {
-    var styles = win.getComputedStyle(doc.documentElement, '');
-    var pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
-      styles.OLink === '' && ['', 'o'])[1];
-    var dom = 'WebKit|Moz|MS|O'.match(new RegExp('(' + pre + ')', 'i'))[1];
-    return {
-      dom: dom,
-      lowercase: pre,
-      css: '-' + pre + '-',
-      js: pre[0].toUpperCase() + pre.substr(1)
-    };
-  }();
-
-  return utils;
-});
+  }
+}

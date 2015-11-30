@@ -1,20 +1,15 @@
-(function(win, doc) {
-'use strict';
+import Tweet from './tweet';
+import utils from './utils';
 
-var Tweet = using('tweet');
-var utils = using('utils');
-var appReady = false;
+const win = window;
+const doc = document;
 
 function main() {
   win.removeEventListener('load', main, false);
-  if (appReady) {
-    return;
-  }
 
   var resizeTimer = 0;
   var listEl = utils.getId('list');
   var busy = false;
-  var template = '';
   var windowSize = {
       width: win.innerWidth,
       height: win.innerHeight
@@ -65,7 +60,7 @@ function main() {
       idCache.push(datum.id);
       var sideEl = utils.createNode('div');
       sideEl.setAttribute('class', 'side right');
-      var tweet = new Tweet(datum, sideEl, template);
+      var tweet = new Tweet(datum, sideEl);
       var entryEl = utils.createNode('div');
       entryEl.setAttribute('class', 'entry');
       listEl.appendChild(entryEl);
@@ -103,14 +98,10 @@ function main() {
   }
 
   (function init() {
-    template = utils.getId('tweet-template');
-    template = template.textContent;
     request(responseHandler);
     win.addEventListener('scroll', windowScroll);
     win.addEventListener('resize', windowResize);
   })();
-
-  appReady = true;
 }
 
 if (doc.readyState !== 'complete') {
@@ -118,4 +109,3 @@ if (doc.readyState !== 'complete') {
 } else {
   main.call(win);
 }
-})(window, document);

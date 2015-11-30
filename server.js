@@ -19,6 +19,11 @@ const pageTitle = 'shiftArray(com)';
  */
 Twitter.getUserTimeline();
 
+/**
+ * Transforms Twitter REST response object into a simple data structure.
+ * @param {Array} data - Twitter data.
+ * @returns {Array}
+ */
 function processData(data) {
   return data.map(function(value) {
     value = value.retweeted ? value.retweeted_status : value;

@@ -21,7 +21,6 @@
   "browser": true,
   "curly": true,
   "undef": false,
-  "globalstrict": true,
   "typed": true,
   "asi": true,
   "nonew": true,
