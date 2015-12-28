@@ -70,7 +70,7 @@ function main() {
     }
 
     if (listEl.offsetHeight < win.innerHeight) {
-      request(responseHandler);
+      request(responseHandler, idCache[idCache.length - 1]);
     }
   }
 
