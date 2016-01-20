@@ -56,10 +56,10 @@ app.set('views', 'templates');
 app.set('view engine', 'jade');
 app.get('/tweets/:maxId?/:count?', function(req, res) {
   var maxId = req.params.maxId;
-  var count = +req.params.count || 10;
+  var count = parseInt(req.params.count, 10) || 10;
   var tweets = Twitter.getTweetData();
   var data = [];
-  if (maxId) {
+  if (maxId !== '0') {
     var i = 0;
     var l = tweets.length;
     for (; i < l; i++) {

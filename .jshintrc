@@ -7,7 +7,7 @@
   "browserify": true,
   "qunit": true,
   "worker": true,
-  "latedef": true,
+  "latedef": false,
   "newcap": true,
   "node": true,
   "noempty": true,

@@ -1,7 +1,6 @@
 const win = window;
 const doc = document;
 const slice = Array.prototype.slice;
-const timeMatchRegExp = /^w+(w+)(d+)([d:]+)+0000(d+)$/;
 const htmlCharRegExp = /&(nbsp|amp|quot|lt|gt);/g;
 const htmlCharMap = {
   'nbsp': ' ',
@@ -74,7 +73,7 @@ export default {
    */
   timeAgo(date) {
     if (typeof date === 'string') {
-      date = new Date(date.replace(timeMatchRegExp, '$1 $2 $4 $3 UTC'));
+      date = new Date(Date.parse(date.replace(/(\+)/, ' UTC$1')));
     }
     const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
     const periods = {
@@ -100,7 +99,7 @@ export default {
         if (periods.hasOwnProperty(prop)) {
           let val = periods[prop];
           if (diff >= val) {
-            var time = parseInt(diff / val);
+            var time = parseInt(diff / val, 10);
             ret += time + ' ' + (time > 1 ? prop + 's' : prop);
             break;
           }
