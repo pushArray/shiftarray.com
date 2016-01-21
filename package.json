@@ -1,7 +1,7 @@
 {
-  "name": "shiftarray",
+  "name": "shiftarray.com",
   "version": "1.1.0",
-  "description": "shiftarray.com / pusharray.com source code.",
+  "description": "shiftarray.com source code.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,35 +14,36 @@
     "twitter": "latest"
   },
   "devDependencies": {
-    "babelify": "^6.4.0",
+    "babel-preset-es2015": "latest",
+    "babelify": "latest",
     "browserify": "latest",
-    "browserify-istanbul": "^0.2.1",
-    "glob": "latest",
+    "browserify-istanbul": "latest",
+    "chai": "latest",
+    "del": "latest",
     "gulp": "latest",
-    "gulp-browserify": "latest",
-    "gulp-clean": "latest",
+    "gulp-cssnano": "latest",
     "gulp-jscs": "latest",
     "gulp-jshint": "latest",
-    "gulp-karma": "latest",
     "gulp-less": "latest",
-    "gulp-minify-css": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
-    "jasmine-core": "latest",
+    "isparta": "latest",
     "karma": "latest",
     "karma-browserify": "latest",
+    "karma-chai": "latest",
     "karma-chrome-launcher": "latest",
     "karma-coverage": "latest",
-    "karma-firefox-launcher": "latest",
     "karma-jasmine": "latest",
+    "karma-mocha": "latest",
     "karma-phantomjs-launcher": "latest",
     "karma-story-reporter": "latest",
+    "mocha": "latest",
     "phantomjs": "latest",
     "vinyl-buffer": "latest",
     "vinyl-source-stream": "latest",
     "yargs": "latest"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "karma start"
   }
 }

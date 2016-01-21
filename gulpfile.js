@@ -7,10 +7,10 @@ const sourcemaps = require('gulp-sourcemaps');
 const jshint = require('gulp-jshint');
 const jscs = require('gulp-jscs');
 const less = require('gulp-less');
-const minifyCSS = require('gulp-minify-css');
 const argv = require('yargs').argv;
 const Server = require('karma').Server;
-const clean = require('gulp-clean');
+const del = require('del');
+const cssnano = require('gulp-cssnano');
 
 const isProduction = argv.production || false;
 
@@ -40,7 +40,7 @@ gulp.task('js', () => {
 gulp.task('less', () => {
   return gulp.src('./static/css/less/all.less')
     .pipe(less())
-    .pipe(minifyCSS())
+    .pipe(cssnano())
     .pipe(gulp.dest('./static/bin/'))
 });
 
@@ -64,10 +64,7 @@ gulp.task('test', (done) => {
 });
 
 gulp.task('clean', () => {
-  return gulp.src('./static/bin/**/*')
-    .pipe(clean({
-        force: true
-      }));
+  return del('./static/bin/**/*');
 });
 
 gulp.task('watch', () => {

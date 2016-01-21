@@ -1,40 +1,42 @@
+var browserifyIstanbul = require('browserify-istanbul');
+var isparta = require('isparta');
+
 module.exports = function(config) {
   config.set({
     // base path, that will be used to resolve files and exclude
     basePath: './',
 
-    preprocessors: {
-      'static/js/spec/**/*.spec.js': ['browserify']
-    },
-
     // frameworks to use
-    frameworks: [
-      'browserify',
-      'jasmine'
-    ],
-
-    browserify: {
-      debug: true,
-      transform: [
-        'babelify',
-        'browserify-istanbul'
-      ]
-    },
+    frameworks: ['mocha', 'chai', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
       'static/js/spec/**/*.spec.js'
     ],
 
+    preprocessors: {
+      'static/js/spec/**/*.spec.js': ['browserify']
+    },
+
+    browserify: {
+      debug: true,
+      transform: [
+        browserifyIstanbul({
+            instrumenter: isparta,
+            ignore: ['**/spec/**']
+          }),
+        'babelify'
+      ]
+    },
+
     // test results reporter to use
-    reporters: [
-      'progress',
-      'coverage'
-    ],
+    reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-      'reporters': [
+      reporters: [
         {
+          type: 'lcov'
+        }, {
           type: 'text'
         }, {
           type: 'text-summary'
@@ -62,6 +64,8 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: true
+    singleRun: true,
+
+    concurrency: Infinity
   });
 };

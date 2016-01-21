@@ -11,9 +11,9 @@ describe('template.js', () => {
   it('test static method', () => {
     var template = Template.create(tweetData);
     var templateString = template.get();
-    expect(templateString).toMatch(tweetData.username);
-    expect(templateString).toMatch(tweetData.screenName);
-    expect(templateString).toMatch(tweetData.profileColor);
-    expect(templateString).toMatch(tweetData.url);
+    expect(templateString).to.contain(tweetData.username);
+    expect(templateString).to.contain(tweetData.screenName);
+    expect(templateString).to.contain(tweetData.profileColor);
+    expect(templateString).to.contain(tweetData.url);
   });
 });
