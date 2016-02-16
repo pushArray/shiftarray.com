@@ -7,7 +7,7 @@ export default class Tweet {
    * @returns {Element}
    */
   static createLine() {
-    var el = utils.createNode('div');
+    let el = utils.createNode('div');
     el.setAttribute('class', 'line inline');
     return el;
   }
@@ -38,7 +38,7 @@ export default class Tweet {
    * @returns {Element} Tweet DOM element.
    */
   createDOM() {
-    var el = utils.createNode('div', {
+    let el = utils.createNode('div', {
       'class': 'tweet'
     });
     el.innerHTML = this.template.get();
@@ -51,9 +51,9 @@ export default class Tweet {
    * Renders text line elements. Tweet element has to be part of the DOM.
    */
   render() {
-    var data = this.data;
-    var text = data.text.replace(/(\n|\r)/gm, ' ');
-    var {hashtags, urls, user_mentions: userMentions, media} = data.entities;
+    let data = this.data;
+    let text = data.text.replace(/(\n|\r)/gm, ' ');
+    let {hashtags, urls, user_mentions: userMentions, media} = data.entities;
     urls.forEach(url => {
       text = text.replace(url.url, url.display_url);
     });
@@ -64,24 +64,24 @@ export default class Tweet {
       });
     }
 
-    var fontSize = 36;
-    var lineEl = this.element.querySelector('.text');
+    let fontSize = 36;
+    let lineEl = this.element.querySelector('.text');
     lineEl.textContent = '';
     lineEl.style.fontSize = fontSize + 'px';
 
-    var containerWidth = lineEl.offsetWidth;
+    let containerWidth = lineEl.offsetWidth;
 
     if (+containerWidth === 0) {
       throw new Error('Line container width must be greater than zero.');
     }
 
-    var lineStr = '';
-    var maxLineLen = 26;
-    var minLineLen = 8;
-    var testStr = '';
-    var currLine = Tweet.createLine();
-    var linesArr = [lineEl.appendChild(currLine)];
-    var wordsArr = text.split(' ');
+    let lineStr = '';
+    let maxLineLen = 26;
+    let minLineLen = 12;
+    let testStr = '';
+    let currLine = Tweet.createLine();
+    let linesArr = [lineEl.appendChild(currLine)];
+    let wordsArr = text.split(' ');
     for (let i = 0, l = wordsArr.length; i < l; i++) {
       let word = wordsArr[i];
       if (!word) {
@@ -107,7 +107,7 @@ export default class Tweet {
       }
     }
 
-    var lineCount = linesArr.length;
+    let lineCount = linesArr.length;
     linesArr.forEach((line, index) => {
       line.style.lineHeight =
         line.style.fontSize = fontSize * containerWidth / line.offsetWidth + 'px';
@@ -124,10 +124,10 @@ export default class Tweet {
       line.setAttribute('class', 'line');
     });
 
-    var linkColor = data.profileColor;
+    let linkColor = data.profileColor;
     urls.forEach(url => {
-      var str = utils.limitString(url.display_url, maxLineLen);
-      var content = `
+      let str = utils.limitString(url.display_url, maxLineLen);
+      let content = `
         <a style="color:${linkColor};"
            href="${url.expanded_url}">
             ${str}
@@ -135,8 +135,8 @@ export default class Tweet {
       lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
     });
     userMentions.forEach(mention => {
-      var str = utils.limitString('@' + mention.screen_name, maxLineLen);
-      var content = `
+      let str = utils.limitString('@' + mention.screen_name, maxLineLen);
+      let content = `
         <a style="color:${linkColor};"
            href="//twitter.com/${mention.screen_name}">
             ${str}
@@ -144,8 +144,8 @@ export default class Tweet {
       lineEl.innerHTML = lineEl.innerHTML.replace(str, content);
     });
     hashtags.forEach(hash => {
-      var str = utils.limitString('#' + hash.text, maxLineLen);
-      var content = `
+      let str = utils.limitString('#' + hash.text, maxLineLen);
+      let content = `
         <a style="color:${linkColor};"
            href="//twitter.com/search?q=%23${hash.text}&src=hash">
             ${str}

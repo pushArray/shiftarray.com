@@ -3,7 +3,8 @@ language: node_js
 node_js:
   - "4.1"
 before_script:
-  - npm install -g gulp-cli
   - npm install
 script:
-  - gulp build
+  - npm run build
+  - npm run min
+  - npm test

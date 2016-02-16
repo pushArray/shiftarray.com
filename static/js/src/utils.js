@@ -9,9 +9,19 @@ const htmlCharMap = {
   'lt': '<',
   'gt': '>'
 };
+const periods = {
+  month: 2628000,
+  week: 604800,
+  day: 86400,
+  hour: 3600,
+  minute: 60,
+  second: 1
+};
+const months = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const getCSSPrefix = () => {
-  var styles = win.getComputedStyle(doc.documentElement, '');
-  var pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
+  let styles = win.getComputedStyle(doc.documentElement, '');
+  let pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
     styles.OLink === '' && ['', 'o'])[1];
   return '-' + pre + '-';
 };
@@ -45,8 +55,8 @@ export default {
    * @returns {Element}
    */
   createNode(node, attrs) {
-    var nodeEl = doc.createElement(node);
-    for (var attr in attrs) {
+    let nodeEl = doc.createElement(node);
+    for (let attr in attrs) {
       if (attrs.hasOwnProperty(attr)) {
         nodeEl.setAttribute(attr, attrs[attr]);
       }
@@ -76,19 +86,7 @@ export default {
       date = new Date(Date.parse(date.replace(/(\+)/, ' UTC$1')));
     }
     const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
-    const periods = {
-      decade: 315360000,
-      year: 31536000,
-      month: 2628000,
-      week: 604800,
-      day: 86400,
-      hour: 3600,
-      minute: 60,
-      second: 1
-    };
-    const months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var ret = '';
+    let ret = '';
     if (diff > periods.month) {
       ret = months[date.getMonth()] + ' ' + date.getDate();
       if (date.getFullYear() !== new Date().getFullYear()) {
@@ -99,7 +97,7 @@ export default {
         if (periods.hasOwnProperty(prop)) {
           let val = periods[prop];
           if (diff >= val) {
-            var time = parseInt(diff / val, 10);
+            let time = parseInt(diff / val, 10);
             ret += time + ' ' + (time > 1 ? prop + 's' : prop);
             break;
           }

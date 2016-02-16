@@ -78,5 +78,6 @@
   "disallowMultipleSpaces": true,
   "requireCapitalizedConstructors": true,
   "disallowSpaceBeforeSemicolon": true,
-  "disallowSpacesInsideObjectBrackets": true
+  "disallowSpacesInsideObjectBrackets": true,
+  "disallowVar": true
 }

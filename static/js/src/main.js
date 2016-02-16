@@ -1,6 +1,6 @@
+import http from './http';
 import Tweet from './tweet';
 import utils from './utils';
-import http from './http';
 
 const win = window;
 const doc = document;
@@ -53,7 +53,7 @@ function responseHandler(data) {
 function windowScroll() {
   let threshold = win.pageYOffset >= (doc.documentElement.scrollHeight - win.innerHeight) * 0.80;
   if (!http.busy && threshold) {
-    var url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
+    let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
     http.request(url, responseHandler);
   }
 }
