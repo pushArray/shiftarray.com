@@ -27,21 +27,21 @@ describe('tweet tests', () => {
     expect(screeNameEl.textContent.trim()).to.equal(`@${data.screenName}`);
   }
 
-  it('check tweet with URLs', () => {
+  it('tweet with URLs', () => {
     let data = sharedTestData.getTweetWithUrls();
     let tweet = new Tweet(data, body);
     tweet.render();
     isValidTweet(tweet, data);
   });
 
-  it('check tweet with hashtags', () => {
+  it('tweet with hashtags', () => {
     let data = sharedTestData.getTweetWithHashtags();
     let tweet = new Tweet(data, body);
     tweet.render();
     isValidTweet(tweet, data);
   });
 
-  it('check tweet with user mentions', () => {
+  it('tweet with user mentions', () => {
     let data = sharedTestData.getTweetWithUserMentions();
     let tweet = new Tweet(data, body);
     tweet.render();

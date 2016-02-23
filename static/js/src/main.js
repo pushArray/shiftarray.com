@@ -6,14 +6,9 @@ const win = window;
 const doc = document;
 const baseUrl = '/tweets';
 
-let resizeTimer = 0;
 let idCache = [];
 let tweets = [];
 let listEl = utils.getId('list');
-let windowSize = {
-  width: win.innerWidth,
-  height: win.innerHeight
-};
 
 /**
  * @param {TwitterError|Array<SimpleTweet>} data - Tweets data.
@@ -37,17 +32,23 @@ function responseHandler(data) {
     let sideEl = utils.createNode('div');
     let tweet = new Tweet(datum, sideEl);
     let entryEl = utils.createNode('div');
-    sideEl.setAttribute('class', 'side right');
+    sideEl.setAttribute('class', 'side');
     entryEl.setAttribute('class', 'entry');
     listEl.appendChild(entryEl);
     entryEl.appendChild(sideEl);
     tweets.push(tweet);
-    tweet.render();
+    delayRender(tweet);
   }
   if (listEl.offsetHeight < win.innerHeight) {
     let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
     http.request(url, responseHandler);
   }
+}
+
+function delayRender(tweet) {
+  setTimeout(() => {
+    tweet.render();
+  }, 0);
 }
 
 function windowScroll() {
@@ -58,27 +59,10 @@ function windowScroll() {
   }
 }
 
-function renderTweets() {
-  let [ww, wh] = [win.innerWidth, win.innerHeight];
-  if (windowSize.width !== ww || windowSize.height !== wh) {
-    for (let i = tweets.length; i-- > 0;) {
-      tweets[i].render();
-    }
-  }
-  windowSize.width = ww;
-  windowSize.height = wh;
-}
-
-function windowResize() {
-  clearInterval(resizeTimer);
-  resizeTimer = setTimeout(renderTweets, 500);
-}
-
 function loaded() {
   win.removeEventListener('load', loaded);
   win.addEventListener('scroll', windowScroll);
-  win.addEventListener('resize', windowResize);
-  http.request(baseUrl + '/0/10', responseHandler);
+  http.request(`${baseUrl}/0/10`, responseHandler);
 }
 
 if (doc.readyState === 'complete') {

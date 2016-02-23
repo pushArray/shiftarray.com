@@ -11,7 +11,7 @@ class Http {
   }
 
   buildUrl(url, ...rest) {
-    return url + '/' + rest.join('/');
+    return `${url}/${rest.join('/')}`;
   }
 
   request(url, callback, method) {

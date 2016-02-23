@@ -1,13 +1,10 @@
 const chai = require('chai');
-const chaiSpy = require('chai-spies');
 const mockFs = require('mock-fs');
 const tweets1 = require('./data/tweets1.json');
 const tweets2 = require('./data/tweets2.json');
 const twitter = require('../twitter');
 
 const expect = chai.expect;
-
-chai.use(chaiSpy);
 
 describe('twitter.js', () => {
   var json1 = JSON.stringify(tweets1);

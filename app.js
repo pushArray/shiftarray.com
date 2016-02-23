@@ -18,7 +18,7 @@ function tweetsHandler(req, res) {
   var maxId = req.params.maxId;
   var count = parseInt(req.params.count, 10) || 10;
   var data = twitter.getMaxId(maxId, count);
-  if (!data.length) {
+  if (!data.length && maxId === '0') {
     data = twitter.getTweetData().slice(0, count);
   }
   res.send(twitter.minifyTweets(data));

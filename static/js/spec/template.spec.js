@@ -3,7 +3,7 @@ import Template from '../src/template';
 
 describe('template.js', () => {
 
-  it('test static method', () => {
+  it('create template for protected tweet', () => {
     let tweetData = sharedTestData.getTweetWithUrls();
     let template = Template.create(tweetData);
     let templateString = template.get();
@@ -12,7 +12,7 @@ describe('template.js', () => {
     expect(templateString).to.contain(tweetData.profileColor);
   });
 
-  it('test unprotected tweet', () => {
+  it('create template for unprotected tweet', () => {
     let tweetData = sharedTestData.getTweetWithHashtags();
     let template = Template.create(tweetData);
     let templateString = template.get();

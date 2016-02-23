@@ -41,8 +41,9 @@ export default class Template {
             <div class="screenname">
                 @${d.screenName}
             </div>
-            <div class="timestamp">
-                ${d.timestamp}
+            <div class="timestamp"
+                 title="${d.fullDate}">
+                ${d.shortDate}
             </div>
         </div>`;
     let head = '';

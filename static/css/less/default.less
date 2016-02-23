@@ -1,8 +1,8 @@
-@TOTAL_WIDTH: 100%; // Affects grid system
+@TOTAL_WIDTH: 100%;
 
 body.busy {
   cursor: progress;
-  .entry.busy {
+  .preloader {
     display: block;
   }
 }
@@ -13,11 +13,10 @@ body.busy {
 
 .preloader {
   z-index: 9999;
-  display: block;
+  display: none;
   position: relative;
-  padding: 5px;
+  padding: 20px 0;
   overflow: hidden;
-  width: 100%;
   text-align: center;
 
   & > * {
@@ -66,24 +65,30 @@ body.busy {
   }
 }
 
+.preloader, .list {
+  width: 660px;
+  margin: 0 auto;
+}
+
 .list {
   .block;
   .relative;
   .no-overflow;
 
+  background: #fff;
   padding: 0;
-  margin: 0;
 }
 
 .entry {
   .no-overflow;
-  .row;
 
   .side {
-    .column(7);
+    .relative;
+    .block;
 
     padding-left: 70px;
     border-left: 5px solid;
+    border-right: 5px solid;
     overflow: hidden;
   }
 }
@@ -94,25 +99,23 @@ body.busy {
   .block;
   .relative;
 
-  min-width: 320px;
-  max-width: 520px;
-  width: 55%;
-  height: auto;
   margin: 20px 0;
+  padding-right: 15px;
 
   .text {
-    .clearfix;
     .relative;
     .block;
-    .no-overflow;
-
-    font-weight: bold;
+    max-width: 560px;
+    font-size: 26px;
+    line-height: 32px;
     font-style: normal;
-
-    white-space: normal;
-
-    padding: 0;
     margin: 0;
+    word-wrap: break-word;
+    visibility: hidden;
+
+    &.rendered {
+      visibility: visible;
+    }
 
     .line {
       .block;
@@ -120,7 +123,6 @@ body.busy {
 
       white-space: nowrap;
       text-align: left;
-      text-transform: uppercase;
 
       &.inline {
         .inline-block;
@@ -161,23 +163,21 @@ body.busy {
     .screenname {
       .no-overflow;
       text-overflow: ellipsis;
+      margin-right: 10px;
     }
 
     .username {
       font-size: 18px;
       max-width: 45%;
-      margin-right: 10px;
     }
 
     .screenname {
-      .flex-1;
       color: rgb(157, 174, 181);
       font-size: 14px;
     }
 
     .timestamp {
-      .flex-1;
-      text-transform: uppercase;
+      flex: 1;
       font-size: 14px;
       text-align: right;
     }

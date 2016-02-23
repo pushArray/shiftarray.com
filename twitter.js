@@ -265,7 +265,6 @@ function minifyTweets(tweets) {
     return {
       id: tweet.id_str,
       username: user.name,
-      // FIXME(@logashoff): No need to send url if profile is private?
       url: `https://twitter.com/${user.screen_name}/statuses/${tweet.id_str}`,
       timestamp: tweet.created_at,
       screenName: user.screen_name,

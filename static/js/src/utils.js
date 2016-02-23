@@ -11,11 +11,11 @@ const htmlCharMap = {
 };
 const periods = {
   month: 2628000,
-  week: 604800,
-  day: 86400,
-  hour: 3600,
-  minute: 60,
-  second: 1
+  w: 604800,
+  d: 86400,
+  h: 3600,
+  m: 60,
+  s: 1
 };
 const months = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -78,18 +78,16 @@ export default {
   /**
    * Returns formatted date object as string.
    * Forked from http://stackoverflow.com/a/1229594
-   * @param {Date|string} date
+   * @param {Date} date
    * @returns {string}
    */
-  timeAgo(date) {
-    if (typeof date === 'string') {
-      date = new Date(Date.parse(date.replace(/(\+)/, ' UTC$1')));
-    }
-    const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
+  getShortDate(date) {
+    let currDate = new Date();
+    const diff = parseInt((currDate.getTime() - date.getTime()) / 1000, 10);
     let ret = '';
     if (diff > periods.month) {
       ret = months[date.getMonth()] + ' ' + date.getDate();
-      if (date.getFullYear() !== new Date().getFullYear()) {
+      if (date.getFullYear() !== currDate.getFullYear()) {
         ret += ', ' + String(date.getFullYear());
       }
     } else {
@@ -98,15 +96,33 @@ export default {
           let val = periods[prop];
           if (diff >= val) {
             let time = parseInt(diff / val, 10);
-            ret += time + ' ' + (time > 1 ? prop + 's' : prop);
+            ret += time + prop;
             break;
           }
         }
       }
-      ret += ' ago';
     }
-
     return ret;
+  },
+
+  /**
+   * @param {string} utcDate
+   */
+  utcToDate(utcDate) {
+    return new Date(Date.parse(utcDate.replace(/(\+)/, ' UTC$1')));
+  },
+
+  /**
+   * @param {Date} date
+   * @returns {string}
+   */
+  getFullDate(date) {
+    let monthDate = date.getDate();
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    return `${monthDate} ${month}, ${year} - ${hours}:${minutes}`;
   },
 
   /**
@@ -119,6 +135,6 @@ export default {
     if (str.length <= length) {
       return str;
     }
-    return str.substring(0, length - 3) + '...';
+    return str.substring(0, length - 3) + '…';
   }
 }

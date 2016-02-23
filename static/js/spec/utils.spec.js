@@ -17,8 +17,8 @@ describe('utils tests', () => {
     expect(utils.replaceHtmlEntities(html)).to.equal('<foo>');
   });
 
-  it('timeAgo', () => {
-    expect(utils.timeAgo(new Date(1970, 0, 1))).to.equal('Jan 1, 1970');
+  it('getShortDate', () => {
+    expect(utils.getShortDate(new Date(1970, 0, 1))).to.equal('Jan 1, 1970');
     let currDate = new Date();
     let testDate = new Date(
       currDate.getFullYear(),
@@ -29,7 +29,7 @@ describe('utils tests', () => {
       currDate.getSeconds(),
       currDate.getSeconds()
     );
-    expect(utils.timeAgo(testDate)).to.equal('1 day ago');
+    expect(utils.getShortDate(testDate)).to.equal('1d');
     testDate = new Date(
       currDate.getFullYear(),
       currDate.getMonth(),
@@ -39,7 +39,7 @@ describe('utils tests', () => {
       currDate.getSeconds(),
       currDate.getSeconds()
     );
-    expect(utils.timeAgo(testDate)).to.equal('2 days ago');
+    expect(utils.getShortDate(testDate)).to.equal('2d');
     testDate = new Date(
       currDate.getFullYear(),
       currDate.getMonth(),
@@ -49,18 +49,18 @@ describe('utils tests', () => {
       currDate.getSeconds(),
       currDate.getSeconds()
     );
-    expect(utils.timeAgo(testDate)).to.equal('1 week ago');
+    expect(utils.getShortDate(testDate)).to.equal('1w');
   });
 
   it('limitString', () => {
     let str = 'Lorem ipsum dolor sit amet';
 
     let limitedStr = utils.limitString(str, 6);
-    expect(limitedStr).to.equal('Lor...');
+    expect(limitedStr).to.equal('Lor…');
     expect(limitedStr.length).to.equal(6);
 
     limitedStr = utils.limitString(str, 10);
-    expect(limitedStr).to.equal('Lorem i...');
+    expect(limitedStr).to.equal('Lorem i…');
     expect(limitedStr.length).to.equal(10);
 
     limitedStr = utils.limitString(str, str.length);
@@ -68,7 +68,7 @@ describe('utils tests', () => {
     expect(limitedStr.length).to.equal(str.length);
 
     limitedStr = utils.limitString(str, 17);
-    expect(limitedStr).to.equal('Lorem ipsum do...');
+    expect(limitedStr).to.equal('Lorem ipsum do…');
     expect(limitedStr.length).to.equal(17);
   });
 });
