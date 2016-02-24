@@ -1,4 +1,4 @@
-import sharedTestData from './sharedtestdata';
+import sharedTestData from './shared_test_data';
 import Template from '../src/template';
 
 describe('template.js', () => {

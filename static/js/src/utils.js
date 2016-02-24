@@ -1,6 +1,4 @@
-const win = window;
 const doc = document;
-const slice = Array.prototype.slice;
 const htmlCharRegExp = /&(nbsp|amp|quot|lt|gt);/g;
 const htmlCharMap = {
   'nbsp': ' ',
@@ -19,26 +17,8 @@ const periods = {
 };
 const months = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const getCSSPrefix = () => {
-  let styles = win.getComputedStyle(doc.documentElement, '');
-  let pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
-    styles.OLink === '' && ['', 'o'])[1];
-  return '-' + pre + '-';
-};
 
 export default {
-  cssPrefix: getCSSPrefix(),
-
-  /**
-   * Queries all elements by specified selector.
-   * @param {string} str - Element selector.
-   * @param {HTMLElement} element - Parent element.
-   * @returns {NodeList}
-   */
-  queryAll(str, element = doc) {
-    return element.querySelectorAll(str);
-  },
-
   /**
    * Queries DOM elements by id.
    * @param {string} id
@@ -123,18 +103,5 @@ export default {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     return `${monthDate} ${month}, ${year} - ${hours}:${minutes}`;
-  },
-
-  /**
-   * Returns string truncated to the length specified.
-   * @param {string} str
-   * @param {number} length
-   * @returns {string}
-   */
-  limitString(str, length) {
-    if (str.length <= length) {
-      return str;
-    }
-    return str.substring(0, length - 3) + '…';
   }
 }

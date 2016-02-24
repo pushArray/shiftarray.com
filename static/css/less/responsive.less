@@ -1,6 +1,4 @@
-// 480px 768px 992px 1200px
-
-@media (max-width: 660px) {
+@media (max-width: @column-width) {
   .hide-mobile {
     .hidden;
   }
@@ -11,23 +9,33 @@
 
   .entry {
     .side {
-      padding: 0 20px;
+      padding: 0 15px;
     }
   }
 
   .tweet {
     padding: 0;
+
     .user-container {
       margin: 0 0 10px 0;
-      .user-avatar,
-      .username {
+      font-size: 4vmin;
+      overflow: visible;
+
+      .user-avatar, .username {
         .hidden;
       }
+
       .screenname {
         color: inherit;
         margin: 0;
+        overflow: visible;
       }
     }
 
+    .text {
+      font-size: 4vmin;
+      line-height: normal;
+      margin: 5px;
+    }
   }
 }

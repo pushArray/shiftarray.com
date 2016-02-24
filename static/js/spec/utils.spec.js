@@ -1,6 +1,6 @@
 import utils from '../src/utils';
 
-describe('utils tests', () => {
+describe('utils.js', () => {
   it('createNode', () => {
     let el = utils.createNode('div', {
       'id': 'foo',
@@ -52,23 +52,18 @@ describe('utils tests', () => {
     expect(utils.getShortDate(testDate)).to.equal('1w');
   });
 
-  it('limitString', () => {
-    let str = 'Lorem ipsum dolor sit amet';
+  it('utcToDate', () => {
+    let date = utils.utcToDate('Fri Feb 12 19:37:55 +0000 2016');
+    expect(date.getUTCFullYear()).to.equal(2016);
+    expect(date.getUTCMonth()).to.equal(1);
+    expect(date.getUTCDate()).to.equal(12);
+    expect(date.getUTCHours()).to.equal(19);
+    expect(date.getUTCMinutes()).to.equal(37);
+    expect(date.getUTCSeconds()).to.equal(55);
+  });
 
-    let limitedStr = utils.limitString(str, 6);
-    expect(limitedStr).to.equal('Lor…');
-    expect(limitedStr.length).to.equal(6);
-
-    limitedStr = utils.limitString(str, 10);
-    expect(limitedStr).to.equal('Lorem i…');
-    expect(limitedStr.length).to.equal(10);
-
-    limitedStr = utils.limitString(str, str.length);
-    expect(limitedStr).to.equal(str);
-    expect(limitedStr.length).to.equal(str.length);
-
-    limitedStr = utils.limitString(str, 17);
-    expect(limitedStr).to.equal('Lorem ipsum do…');
-    expect(limitedStr.length).to.equal(17);
+  it('getFullDate', () => {
+    let date = utils.getFullDate(new Date(2016, 1, 23, 11, 25, 50));
+    expect(date).to.equal('23 Feb, 2016 - 11:25');
   });
 });

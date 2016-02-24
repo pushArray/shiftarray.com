@@ -1,7 +1,7 @@
-import sharedTestData from './sharedtestdata';
+import sharedTestData from './shared_test_data';
 import Tweet from '../src/tweet';
 
-describe('tweet tests', () => {
+describe('tweet.js', () => {
 
   let doc = document;
   let body = doc.body;

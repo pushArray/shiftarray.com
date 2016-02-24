@@ -2,15 +2,6 @@ import Template from './template';
 import utils from './utils';
 
 export default class Tweet {
-  /**
-   * Creates and returns container element for tweet line.
-   * @returns {Element}
-   */
-  static createLine() {
-    let el = utils.createNode('div');
-    el.setAttribute('class', 'line inline');
-    return el;
-  }
 
   /**
    * @param {SimpleTweet} data - Tweet data object.

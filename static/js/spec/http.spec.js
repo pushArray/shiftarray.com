@@ -1,5 +1,5 @@
 import chaiSpy from 'chai-spies';
-import sharedTestData from './sharedtestdata';
+import sharedTestData from './shared_test_data';
 import sinon from 'sinon';
 import http from '../src/http';
 
