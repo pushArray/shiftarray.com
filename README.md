@@ -1,6 +1,6 @@
 # shiftarray.com
 
-[![Build Status](https://travis-ci.org/logashoff/shiftarray.com.svg?branch=master)](https://travis-ci.org/logashoff/shiftarray.com) [![Dependency Status](https://david-dm.org/logashoff/shiftarray.com.svg)](https://david-dm.org/logashoff/shiftarray.com) [![devDependency Status](https://david-dm.org/logashoff/shiftarray.com/dev-status.svg)](https://david-dm.org/logashoff/shiftarray.com#info=devDependencies)
+[![Build Status](https://travis-ci.org/logashoff/shiftarray.com.svg?branch=master)](https://travis-ci.org/logashoff/shiftarray.com) [![Dependency Status](https://david-dm.org/logashoff/shiftarray.com.svg)](https://david-dm.org/logashoff/shiftarray.com) [![devDependency Status](https://david-dm.org/logashoff/shiftarray.com/dev-status.svg)](https://david-dm.org/logashoff/shiftarray.com#info=devDependencies) [![Code Climate](https://codeclimate.com/github/logashoff/shiftarray.com/badges/gpa.svg)](https://codeclimate.com/github/logashoff/shiftarray.com)
 
 ## Usage
 
@@ -12,9 +12,8 @@ For Twitter API to work ```TWITTER_CONSUMER_KEY```, ```TWITTER_CONSUMER_SECRET``
 
 Install dependencies and do initial build:
 ```
-npm install -g gulp-cli
 npm install
-gulp build
+npm run build
 ```
 
 Run server on port 8080 as defined in ```server.js```:

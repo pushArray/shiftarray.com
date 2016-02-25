@@ -29,29 +29,45 @@ export default class Template {
    * @returns {string}
    */
   parse() {
-    var template = `
-      <a href="${this.data.url}"
-         target="_self"
-         class="user-container"
-         style="color: ${this.data.profileColor}">
+    let d = this.data;
+    let headBody = `
         <div class="user-avatar"
-             style="background: ${this.data.profileColor} url(${this.data.userImage});">
+             style="background: ${d.profileColor} url(${d.userImage});">
         </div>
         <div class="flex-box no-wrap">
             <div class="username">
-                ${this.data.username}
+                ${d.username}
             </div>
             <div class="screenname">
-                @${this.data.screenName}
+                @${d.screenName}
             </div>
-            <div class="timestamp">
-                ${this.data.timestamp}
+            <div class="timestamp"
+                 title="${d.fullDate}">
+                ${d.shortDate}
             </div>
-        </div>
-      </a>
-      <div class="text">
-        ${this.data.text}
-      </div>`;
+        </div>`;
+    let head = '';
+    if (d.protected) {
+      head = `
+        <span class="user-container"
+              style="color: ${d.profileColor}">
+           ${headBody}
+        </span>
+      `;
+    } else {
+      head = `
+          <a href="${d.url}"
+             target="_blank"
+             class="user-container"
+             style="color: ${d.profileColor}">
+              ${headBody}
+          </a>`;
+    }
+    let template = `
+        ${head}
+        <div class="text">
+          ${this.data.text}
+        </div>`;
     this.template = template.trim();
     return this.template;
   }

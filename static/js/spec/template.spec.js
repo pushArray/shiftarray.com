@@ -1,19 +1,24 @@
+import sharedTestData from './shared_test_data';
 import Template from '../src/template';
-import sharedTestData from './sharedtestdata';
 
 describe('template.js', () => {
-  var tweetData;
 
-  beforeEach(() => {
-    tweetData = sharedTestData.getTweetData();
+  it('create template for protected tweet', () => {
+    let tweetData = sharedTestData.getTweetWithUrls();
+    let template = Template.create(tweetData);
+    let templateString = template.get();
+    expect(templateString).to.contain(tweetData.username);
+    expect(templateString).to.contain(tweetData.screenName);
+    expect(templateString).to.contain(tweetData.profileColor);
   });
 
-  it('test static method', () => {
-    var template = Template.create(tweetData);
-    var templateString = template.get();
-    expect(templateString).toMatch(tweetData.username);
-    expect(templateString).toMatch(tweetData.screenName);
-    expect(templateString).toMatch(tweetData.profileColor);
-    expect(templateString).toMatch(tweetData.url);
+  it('create template for unprotected tweet', () => {
+    let tweetData = sharedTestData.getTweetWithHashtags();
+    let template = Template.create(tweetData);
+    let templateString = template.get();
+    expect(templateString).to.contain(tweetData.username);
+    expect(templateString).to.contain(tweetData.screenName);
+    expect(templateString).to.contain(tweetData.profileColor);
+    expect(templateString).to.contain(tweetData.url);
   });
 });

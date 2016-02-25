@@ -7,40 +7,35 @@ const sourcemaps = require('gulp-sourcemaps');
 const jshint = require('gulp-jshint');
 const jscs = require('gulp-jscs');
 const less = require('gulp-less');
-const minifyCSS = require('gulp-minify-css');
-const argv = require('yargs').argv;
-const Server = require('karma').Server;
-const clean = require('gulp-clean');
-
-const isProduction = argv.production || false;
+const del = require('del');
+const cssnano = require('gulp-cssnano');
 
 gulp.task('js', () => {
   var b = browserify({
     entries: './static/js/src/main.js',
-    debug: !isProduction,
+    debug: true,
     transform: ['babelify']
   });
-  var dest = gulp.dest('./static/bin/');
-  var pipe = b.bundle()
+  return b.bundle()
     .pipe(source('p4.js'))
-    .pipe(buffer());
-  if (!isProduction) {
-    return pipe
-      .pipe(sourcemaps.init({
-          loadMaps: true
-        }))
-      .pipe(sourcemaps.write())
-      .pipe(dest);
-  }
-  return pipe
+    .pipe(buffer())
+    .pipe(sourcemaps.init({
+        loadMaps: true
+      }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./static/bin/'));
+});
+
+gulp.task('min', () => {
+  return gulp.src('./static/bin/*.js')
     .pipe(uglify())
-    .pipe(dest);
+    .pipe(gulp.dest('./static/bin/'));
 });
 
 gulp.task('less', () => {
   return gulp.src('./static/css/less/all.less')
     .pipe(less())
-    .pipe(minifyCSS())
+    .pipe(cssnano())
     .pipe(gulp.dest('./static/bin/'))
 });
 
@@ -57,17 +52,8 @@ gulp.task('lint', () => {
     .pipe(jscs.reporter('fail'));
 });
 
-gulp.task('test', (done) => {
-  new Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
-});
-
 gulp.task('clean', () => {
-  return gulp.src('./static/bin/**/*')
-    .pipe(clean({
-        force: true
-      }));
+  return del('./static/bin/**/*');
 });
 
 gulp.task('watch', () => {
@@ -80,7 +66,6 @@ gulp.task('watch', () => {
 
 gulp.task('build', [
   'lint',
-  'test',
   'clean',
   'less',
   'js'

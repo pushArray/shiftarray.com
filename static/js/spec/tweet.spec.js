@@ -1,29 +1,53 @@
+import sharedTestData from './shared_test_data';
 import Tweet from '../src/tweet';
-import sharedTestData from './sharedtestdata';
 
-describe('tweet tests', () => {
-  var tweet;
-  var tweetData;
+describe('tweet.js', () => {
 
-  beforeEach(() => {
-    tweetData = sharedTestData.getTweetData();
-    tweet = new Tweet(tweetData, document.body);
+  let doc = document;
+  let body = doc.body;
+
+  afterEach(() => {
+    let fc = body.firstChild;
+    while (fc) {
+      body.removeChild(fc);
+      fc = body.firstChild;
+    }
   });
 
-  it('check DOM structure', () => {
-    var tweetElement = tweet.element;
-    var statusUrl = tweetElement.querySelector('a.user-container');
-    expect(statusUrl.href).toBe('https://twitter.com/' + tweetData.screenName +
-      '/statuses/' + tweetData.id);
-    var usernameEl = tweetElement.querySelector('.username');
-    expect(usernameEl.textContent.trim()).toBe(tweetData.username);
-    var screeNameEl = tweetElement.querySelector('.screenname');
-    expect(screeNameEl.textContent.trim()).toBe('@' + tweetData.screenName);
-    var textEl = tweetElement.querySelector('.text');
-    expect(textEl.textContent.trim()).toBe(tweetData.text);
-  });
+  function isValidTweet(tweet, data) {
+    let tweetElement = tweet.element;
+    if (!data.protected) {
+      let statusUrl = tweetElement.querySelector('a.user-container');
+      expect(statusUrl.href).to.equal(
+        `https://twitter.com/${data.screenName}/statuses/${data.id}`);
+    }
+    let usernameEl = tweetElement.querySelector('.username');
+    expect(usernameEl.textContent.trim()).to.equal(data.username);
+    let screeNameEl = tweetElement.querySelector('.screenname');
+    expect(screeNameEl.textContent.trim()).to.equal(`@${data.screenName}`);
+    let text = tweetElement.querySelector('.text');
+    expect(text.textContent).to.have.length.above(1);
+    expect(text.classList.contains('rendered')).to.equal(true);
+  }
 
-  it('render tweet', () => {
+  it('tweet with URLs', () => {
+    let data = sharedTestData.getTweetWithUrls();
+    let tweet = new Tweet(data, body);
     tweet.render();
+    isValidTweet(tweet, data);
+  });
+
+  it('tweet with hashtags', () => {
+    let data = sharedTestData.getTweetWithHashtags();
+    let tweet = new Tweet(data, body);
+    tweet.render();
+    isValidTweet(tweet, data);
+  });
+
+  it('tweet with user mentions', () => {
+    let data = sharedTestData.getTweetWithUserMentions();
+    let tweet = new Tweet(data, body);
+    tweet.render();
+    isValidTweet(tweet, data);
   });
 });

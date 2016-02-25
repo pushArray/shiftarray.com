@@ -1,7 +1,4 @@
-const win = window;
 const doc = document;
-const slice = Array.prototype.slice;
-const timeMatchRegExp = /^w+(w+)(d+)([d:]+)+0000(d+)$/;
 const htmlCharRegExp = /&(nbsp|amp|quot|lt|gt);/g;
 const htmlCharMap = {
   'nbsp': ' ',
@@ -10,26 +7,19 @@ const htmlCharMap = {
   'lt': '<',
   'gt': '>'
 };
-const getCSSPrefix = () => {
-  var styles = win.getComputedStyle(doc.documentElement, '');
-  var pre = (slice.call(styles).join('').match(/-(moz|webkit|ms)-/) ||
-    styles.OLink === '' && ['', 'o'])[1];
-  return '-' + pre + '-';
+const periods = {
+  month: 2628000,
+  w: 604800,
+  d: 86400,
+  h: 3600,
+  m: 60,
+  s: 1
 };
+const months = [
+  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
 
 export default {
-  cssPrefix: getCSSPrefix(),
-
-  /**
-   * Queries all elements by specified selector.
-   * @param {string} str - Element selector.
-   * @param {HTMLElement} element - Parent element.
-   * @returns {NodeList}
-   */
-  queryAll(str, element = doc) {
-    return element.querySelectorAll(str);
-  },
-
   /**
    * Queries DOM elements by id.
    * @param {string} id
@@ -46,8 +36,8 @@ export default {
    * @returns {Element}
    */
   createNode(node, attrs) {
-    var nodeEl = doc.createElement(node);
-    for (var attr in attrs) {
+    let nodeEl = doc.createElement(node);
+    for (let attr in attrs) {
       if (attrs.hasOwnProperty(attr)) {
         nodeEl.setAttribute(attr, attrs[attr]);
       }
@@ -69,30 +59,16 @@ export default {
   /**
    * Returns formatted date object as string.
    * Forked from http://stackoverflow.com/a/1229594
-   * @param {Date|string} date
+   * @param {Date} date
    * @returns {string}
    */
-  timeAgo(date) {
-    if (typeof date === 'string') {
-      date = new Date(date.replace(timeMatchRegExp, '$1 $2 $4 $3 UTC'));
-    }
-    const diff = parseInt((new Date().getTime() - date.getTime()) / 1000, 10);
-    const periods = {
-      decade: 315360000,
-      year: 31536000,
-      month: 2628000,
-      week: 604800,
-      day: 86400,
-      hour: 3600,
-      minute: 60,
-      second: 1
-    };
-    const months = [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var ret = '';
+  getShortDate(date) {
+    let currDate = new Date();
+    const diff = parseInt((currDate.getTime() - date.getTime()) / 1000, 10);
+    let ret = '';
     if (diff > periods.month) {
       ret = months[date.getMonth()] + ' ' + date.getDate();
-      if (date.getFullYear() !== new Date().getFullYear()) {
+      if (date.getFullYear() !== currDate.getFullYear()) {
         ret += ', ' + String(date.getFullYear());
       }
     } else {
@@ -100,28 +76,33 @@ export default {
         if (periods.hasOwnProperty(prop)) {
           let val = periods[prop];
           if (diff >= val) {
-            var time = parseInt(diff / val);
-            ret += time + ' ' + (time > 1 ? prop + 's' : prop);
+            let time = parseInt(diff / val, 10);
+            ret += time + prop;
             break;
           }
         }
       }
-      ret += ' ago';
     }
-
     return ret;
   },
 
   /**
-   * Returns string truncated to the length specified.
-   * @param {string} str
-   * @param {number} length
+   * @param {string} utcDate
+   */
+  utcToDate(utcDate) {
+    return new Date(Date.parse(utcDate.replace(/(\+)/, ' UTC$1')));
+  },
+
+  /**
+   * @param {Date} date
    * @returns {string}
    */
-  limitString(str, length) {
-    if (str.length <= length) {
-      return str;
-    }
-    return str.substring(0, length - 3) + '...';
+  getFullDate(date) {
+    let monthDate = date.getDate();
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    return `${monthDate} ${month}, ${year} - ${hours}:${minutes}`;
   }
 }

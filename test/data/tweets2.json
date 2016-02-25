@@ -1,0 +1,1713 @@
+[
+  {
+    "created_at": "Tue Nov 24 06:58:46 +0000 2015",
+    "id": 669047488330895400,
+    "id_str": "669047488330895362",
+    "text": "RT @JavaScriptDaily: Top 10 ES6 Features Every Busy JavaScript Developer Must Know: https://t.co/YQBJOAFkZe",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Tue Nov 24 06:45:21 +0000 2015",
+      "id": 669044114198028300,
+      "id_str": "669044114198028288",
+      "text": "Top 10 ES6 Features Every Busy JavaScript Developer Must Know: https://t.co/YQBJOAFkZe",
+      "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 459275531,
+        "id_str": "459275531",
+        "name": "JavaScript Live",
+        "screen_name": "JavaScriptDaily",
+        "location": "",
+        "description": "Daily JavaScript community news, links and events.",
+        "url": "http://t.co/yTZ4fsOxGj",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/yTZ4fsOxGj",
+                "expanded_url": "http://jslive.com",
+                "display_url": "jslive.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 187198,
+        "friends_count": 40,
+        "listed_count": 4439,
+        "created_at": "Mon Jan 09 13:43:05 +0000 2012",
+        "favourites_count": 2,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 5242,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "51CBBF",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/459275531/1433778003",
+        "profile_link_color": "177A6E",
+        "profile_sidebar_border_color": "F0EDDA",
+        "profile_sidebar_fill_color": "FDFFF0",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 105,
+      "favorite_count": 208,
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https://t.co/YQBJOAFkZe",
+            "expanded_url": "http://webapplog.com/es6/",
+            "display_url": "webapplog.com/es6/",
+            "indices": [
+              63,
+              86
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 105,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "JavaScriptDaily",
+          "name": "JavaScript Live",
+          "id": 459275531,
+          "id_str": "459275531",
+          "indices": [
+            3,
+            19
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/YQBJOAFkZe",
+          "expanded_url": "http://webapplog.com/es6/",
+          "display_url": "webapplog.com/es6/",
+          "indices": [
+            84,
+            107
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Nov 23 19:05:17 +0000 2015",
+    "id": 668867935650246700,
+    "id_str": "668867935650246656",
+    "text": "RT @JavaScriptDaily: Finitely Iterating Infinite Data With ES6 Generators: \nhttps://t.co/HqNcT8hAe5",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Mon Nov 23 12:59:08 +0000 2015",
+      "id": 668775790696374300,
+      "id_str": "668775790696374272",
+      "text": "Finitely Iterating Infinite Data With ES6 Generators: \nhttps://t.co/HqNcT8hAe5",
+      "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 459275531,
+        "id_str": "459275531",
+        "name": "JavaScript Live",
+        "screen_name": "JavaScriptDaily",
+        "location": "",
+        "description": "Daily JavaScript community news, links and events.",
+        "url": "http://t.co/yTZ4fsOxGj",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/yTZ4fsOxGj",
+                "expanded_url": "http://jslive.com",
+                "display_url": "jslive.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 187198,
+        "friends_count": 40,
+        "listed_count": 4439,
+        "created_at": "Mon Jan 09 13:43:05 +0000 2012",
+        "favourites_count": 2,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 5242,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "51CBBF",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/459275531/1433778003",
+        "profile_link_color": "177A6E",
+        "profile_sidebar_border_color": "F0EDDA",
+        "profile_sidebar_fill_color": "FDFFF0",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 28,
+      "favorite_count": 61,
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https://t.co/HqNcT8hAe5",
+            "expanded_url": "http://derickbailey.com/2015/11/18/finitely-iterating-infinite-data-with-es6-generators/",
+            "display_url": "derickbailey.com/2015/11/18/fin…",
+            "indices": [
+              55,
+              78
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 28,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "JavaScriptDaily",
+          "name": "JavaScript Live",
+          "id": 459275531,
+          "id_str": "459275531",
+          "indices": [
+            3,
+            19
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/HqNcT8hAe5",
+          "expanded_url": "http://derickbailey.com/2015/11/18/finitely-iterating-infinite-data-with-es6-generators/",
+          "display_url": "derickbailey.com/2015/11/18/fin…",
+          "indices": [
+            76,
+            99
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Tue Nov 10 16:17:30 +0000 2015",
+    "id": 664114668969988100,
+    "id_str": "664114668969988096",
+    "text": "RT @golang: Today Go turns 6. Happy Birthday, Go!\n\nhttps://t.co/qsgasmI6RN\n\n#golang",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Tue Nov 10 12:23:29 +0000 2015",
+      "id": 664055776118308900,
+      "id_str": "664055776118308864",
+      "text": "Today Go turns 6. Happy Birthday, Go!\n\nhttps://t.co/qsgasmI6RN\n\n#golang",
+      "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 113419064,
+        "id_str": "113419064",
+        "name": "Go",
+        "screen_name": "golang",
+        "location": "",
+        "description": "Go will make you love programming again. I promise.",
+        "url": "http://t.co/C4svVTkUmj",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/C4svVTkUmj",
+                "expanded_url": "http://golang.org/",
+                "display_url": "golang.org",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 38117,
+        "friends_count": 0,
+        "listed_count": 1045,
+        "created_at": "Thu Feb 11 18:04:38 +0000 2010",
+        "favourites_count": 205,
+        "utc_offset": -32400,
+        "time_zone": "Alaska",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 1944,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/2388595262/v02jhlxou71qagr6mwet_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/2388595262/v02jhlxou71qagr6mwet_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/113419064/1398369112",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 474,
+      "favorite_count": 395,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "golang",
+            "indices": [
+              64,
+              71
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https://t.co/qsgasmI6RN",
+            "expanded_url": "https://blog.golang.org/6years",
+            "display_url": "blog.golang.org/6years",
+            "indices": [
+              39,
+              62
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 474,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "golang",
+          "indices": [
+            76,
+            83
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "golang",
+          "name": "Go",
+          "id": 113419064,
+          "id_str": "113419064",
+          "indices": [
+            3,
+            10
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/qsgasmI6RN",
+          "expanded_url": "https://blog.golang.org/6years",
+          "display_url": "blog.golang.org/6years",
+          "indices": [
+            51,
+            74
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Nov 09 15:40:10 +0000 2015",
+    "id": 663742888367419400,
+    "id_str": "663742888367419393",
+    "text": "RT @francesc: HTTP2 is coming with #golang 1.6\n@bradfitz at #dotgoeu\nhttps://t.co/uKYRNalwJg",
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Mon Nov 09 13:14:03 +0000 2015",
+      "id": 663706114979029000,
+      "id_str": "663706114979028993",
+      "text": "HTTP2 is coming with #golang 1.6\n@bradfitz at #dotgoeu\nhttps://t.co/uKYRNalwJg",
+      "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 122053508,
+        "id_str": "122053508",
+        "name": "Francesc",
+        "screen_name": "francesc",
+        "location": "Sant Francesc, CA",
+        "description": "Señor Developer Advocate for Alphabet's @GoogleCloud, Gopher, Catalan, Gaygler - perennial learner of things",
+        "url": "http://t.co/DP3S0s4f7a",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/DP3S0s4f7a",
+                "expanded_url": "http://campoy.cat",
+                "display_url": "campoy.cat",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 5150,
+        "friends_count": 551,
+        "listed_count": 283,
+        "created_at": "Thu Mar 11 12:49:26 +0000 2010",
+        "favourites_count": 6388,
+        "utc_offset": -28800,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 7299,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FFAA55",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000168409129/5iz06UHb.png",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000168409129/5iz06UHb.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/672896167974322177/xfYqW5J-_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/672896167974322177/xfYqW5J-_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/122053508/1449034105",
+        "profile_link_color": "3B94D9",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "F6F6F6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 142,
+      "favorite_count": 102,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "golang",
+            "indices": [
+              21,
+              28
+            ]
+          },
+          {
+            "text": "dotgoeu",
+            "indices": [
+              46,
+              54
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "bradfitz",
+            "name": "Brad Fitzpatrick",
+            "id": 650013,
+            "id_str": "650013",
+            "indices": [
+              33,
+              42
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https://t.co/uKYRNalwJg",
+            "expanded_url": "http://golang.org/s/http2iscoming",
+            "display_url": "golang.org/s/http2iscoming",
+            "indices": [
+              55,
+              78
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 142,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "golang",
+          "indices": [
+            35,
+            42
+          ]
+        },
+        {
+          "text": "dotgoeu",
+          "indices": [
+            60,
+            68
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "francesc",
+          "name": "Francesc",
+          "id": 122053508,
+          "id_str": "122053508",
+          "indices": [
+            3,
+            12
+          ]
+        },
+        {
+          "screen_name": "bradfitz",
+          "name": "Brad Fitzpatrick",
+          "id": 650013,
+          "id_str": "650013",
+          "indices": [
+            47,
+            56
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https://t.co/uKYRNalwJg",
+          "expanded_url": "http://golang.org/s/http2iscoming",
+          "display_url": "golang.org/s/http2iscoming",
+          "indices": [
+            69,
+            92
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sun Nov 08 01:09:44 +0000 2015",
+    "id": 663161444813279200,
+    "id_str": "663161444813279232",
+    "text": "JavaScript in one picture: https://t.co/QbRwpZTh83",
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "https://t.co/QbRwpZTh83",
+          "expanded_url": "https://github.com/coodict/javascript-in-one-pic",
+          "display_url": "github.com/coodict/javasc…",
+          "indices": [
+            27,
+            50
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Fri Nov 06 20:16:33 +0000 2015",
+    "id": 662725277710086100,
+    "id_str": "662725277710086144",
+    "text": "Babel 6.0 released: https://t.co/NFPRkPLQXh",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "https://t.co/NFPRkPLQXh",
+          "expanded_url": "https://babeljs.io/blog/2015/10/29/6.0.0/",
+          "display_url": "babeljs.io/blog/2015/10/2…",
+          "indices": [
+            20,
+            43
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Fri Sep 25 19:55:06 +0000 2015",
+    "id": 647499586861297700,
+    "id_str": "647499586861297664",
+    "text": "traceroute http://t.co/jJqqC1su9n Neat!",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "http://t.co/jJqqC1su9n",
+          "expanded_url": "http://bad.horse",
+          "display_url": "bad.horse",
+          "indices": [
+            11,
+            33
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Jul 27 03:49:01 +0000 2015",
+    "id": 625513193968812000,
+    "id_str": "625513193968812032",
+    "text": "What do ES6 modules export? http://t.co/AI8fyuj6sK",
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "http://t.co/AI8fyuj6sK",
+          "expanded_url": "http://www.2ality.com/2015/07/es6-module-exports.html",
+          "display_url": "2ality.com/2015/07/es6-mo…",
+          "indices": [
+            28,
+            50
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Thu Jun 25 17:19:32 +0000 2015",
+    "id": 614120753189916700,
+    "id_str": "614120753189916673",
+    "text": "RT @JavaScriptDaily: Debugging Node.js Memory Leaks: http://t.co/pTMJIQLbXO",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Thu Jun 25 17:02:09 +0000 2015",
+      "id": 614116378979758100,
+      "id_str": "614116378979758084",
+      "text": "Debugging Node.js Memory Leaks: http://t.co/pTMJIQLbXO",
+      "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 459275531,
+        "id_str": "459275531",
+        "name": "JavaScript Live",
+        "screen_name": "JavaScriptDaily",
+        "location": "",
+        "description": "Daily JavaScript community news, links and events.",
+        "url": "http://t.co/yTZ4fsOxGj",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http://t.co/yTZ4fsOxGj",
+                "expanded_url": "http://jslive.com",
+                "display_url": "jslive.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 187198,
+        "friends_count": 40,
+        "listed_count": 4439,
+        "created_at": "Mon Jan 09 13:43:05 +0000 2012",
+        "favourites_count": 2,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 5242,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "51CBBF",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/558331836/jsbg.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/612958776312905729/1D6mR9eF_normal.png",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/459275531/1433778003",
+        "profile_link_color": "177A6E",
+        "profile_sidebar_border_color": "F0EDDA",
+        "profile_sidebar_fill_color": "FDFFF0",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 48,
+      "favorite_count": 104,
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "http://t.co/pTMJIQLbXO",
+            "expanded_url": "http://blog.flowdock.com/2015/06/22/debugging-node-js-memory-leaks/",
+            "display_url": "blog.flowdock.com/2015/06/22/deb…",
+            "indices": [
+              32,
+              54
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 48,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "JavaScriptDaily",
+          "name": "JavaScript Live",
+          "id": 459275531,
+          "id_str": "459275531",
+          "indices": [
+            3,
+            19
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "http://t.co/pTMJIQLbXO",
+          "expanded_url": "http://blog.flowdock.com/2015/06/22/debugging-node-js-memory-leaks/",
+          "display_url": "blog.flowdock.com/2015/06/22/deb…",
+          "indices": [
+            53,
+            75
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed May 20 18:43:53 +0000 2015",
+    "id": 601096021100232700,
+    "id_str": "601096021100232704",
+    "text": "My updated site is running on Node.js using AWS and it's FAST! Source code is coming soon to Github.",
+    "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Sat May 09 08:10:10 +0000 2015",
+    "id": 596950272565358600,
+    "id_str": "596950272565358592",
+    "text": "The 15 Best JavaScript Charting Libraries: http://t.co/lW2N8o08n5",
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 111507370,
+      "id_str": "111507370",
+      "name": "Alex Logashov",
+      "screen_name": "logashoff",
+      "location": "California",
+      "description": "",
+      "url": "https://t.co/c6R0FnN55a",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/c6R0FnN55a",
+              "expanded_url": "http://pusharray.com",
+              "display_url": "pusharray.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": true,
+      "followers_count": 2,
+      "friends_count": 25,
+      "listed_count": 0,
+      "created_at": "Fri Feb 05 04:48:04 +0000 2010",
+      "favourites_count": 309,
+      "utc_offset": -25200,
+      "time_zone": "Mountain Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 108,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/641435750517510144/dJ2aPqCq_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/111507370/1400474717",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "http://t.co/lW2N8o08n5",
+          "expanded_url": "http://www.sitepoint.com/15-best-javascript-charting-libraries/",
+          "display_url": "sitepoint.com/15-best-javasc…",
+          "indices": [
+            43,
+            65
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  }
+]

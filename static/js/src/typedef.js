@@ -180,6 +180,7 @@
  *   text: string,
  *   userImage: string,
  *   profileColor: string,
- *   entities: TweetEntity
+ *   entities: TweetEntity,
+ *   protected: boolean
  * }} SimpleTweet
  */

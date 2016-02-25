@@ -1,35 +1,41 @@
-// 480px 768px 992px 1200px
-
-@media (max-width: 992px) {
+@media (max-width: @column-width) {
   .hide-mobile {
     .hidden;
   }
 
+  .list {
+    width: auto
+  }
+
   .entry {
     .side {
-      .column(12);
+      padding: 0 15px;
     }
+  }
 
-    .tweet {
-      margin: 15px auto;
-      .user-container {
-        margin: 0;
-        .user-avatar,
-        .username {
-          .hidden;
-        }
-        .screenname,
-        .timestamp {
-          font-size: 1.55em;
-          font-weight: bold;
-          line-height: 2em;
-        }
-        .screenname {
-          color: inherit;
-          margin: 0;
-        }
+  .tweet {
+    padding: 0;
+
+    .user-container {
+      margin: 0 0 10px 0;
+      font-size: 4vmin;
+      overflow: visible;
+
+      .user-avatar, .username {
+        .hidden;
       }
 
+      .screenname {
+        color: inherit;
+        margin: 0;
+        overflow: visible;
+      }
+    }
+
+    .text {
+      font-size: 4vmin;
+      line-height: normal;
+      margin: 5px;
     }
   }
 }
