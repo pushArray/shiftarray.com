@@ -38,7 +38,7 @@ const imageDir = './static/images/twitter/';
  * Minimum number of tweets per request.
  * @private {number}
  */
-const minCount = 300; // TODO: Get rate limit and count from Twitter API.
+const minCount = 300;
 
 /**
  * Number of pending file write streams.
@@ -206,7 +206,6 @@ function userTimelineHandler(error, data) {
     }
     delayRequest();
   } else {
-    // TODO: Get tweets from cache if rate limit exceeded.
     logErrors(error);
     delayRequest();
   }

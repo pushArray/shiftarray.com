@@ -37,18 +37,12 @@ function responseHandler(data) {
     listEl.appendChild(entryEl);
     entryEl.appendChild(sideEl);
     tweets.push(tweet);
-    delayRender(tweet);
+    tweet.render();
   }
   if (listEl.offsetHeight < win.innerHeight) {
     let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
     http.request(url, responseHandler);
   }
-}
-
-function delayRender(tweet) {
-  setTimeout(() => {
-    tweet.render();
-  }, 0);
 }
 
 function windowScroll() {

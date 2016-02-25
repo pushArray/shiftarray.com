@@ -25,6 +25,9 @@ describe('tweet.js', () => {
     expect(usernameEl.textContent.trim()).to.equal(data.username);
     let screeNameEl = tweetElement.querySelector('.screenname');
     expect(screeNameEl.textContent.trim()).to.equal(`@${data.screenName}`);
+    let text = tweetElement.querySelector('.text');
+    expect(text.textContent).to.have.length.above(1);
+    expect(text.classList.contains('rendered')).to.equal(true);
   }
 
   it('tweet with URLs', () => {

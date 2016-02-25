@@ -57,7 +57,7 @@ export default class Template {
     } else {
       head = `
           <a href="${d.url}"
-             target="_self"
+             target="_blank"
              class="user-container"
              style="color: ${d.profileColor}">
               ${headBody}

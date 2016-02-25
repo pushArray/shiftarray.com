@@ -63,6 +63,8 @@ export default class Tweet {
       let str = url.display_url;
       let content = `
         <a style="color:${linkColor};"
+           title="${str}"
+           target="_blank"
            href="${url.expanded_url}">
             ${str}
         </a>`;
@@ -72,6 +74,8 @@ export default class Tweet {
       let str = `@${mention.screen_name}`;
       let content = `
         <a style="color:${linkColor};"
+           title="${str}"
+           target="_blank"
            href="//twitter.com/${mention.screen_name}">
             ${str}
         </a>`;
@@ -81,6 +85,8 @@ export default class Tweet {
       let str = `#${hash.text}`;
       let content = `
         <a style="color:${linkColor};"
+           title="${str}"
+           target="_blank"
            href="//twitter.com/search?q=%23${hash.text}&src=hash">
             ${str}
         </a>`;
