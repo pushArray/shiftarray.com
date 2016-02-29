@@ -8,7 +8,7 @@ const baseUrl = '/tweets';
 
 let idCache = [];
 let tweets = [];
-let listEl = utils.getId('list');
+let list = utils.getId('list');
 
 /**
  * @param {TwitterError|Array<SimpleTweet>} data - Tweets data.
@@ -29,17 +29,14 @@ function responseHandler(data) {
       continue;
     }
     idCache.push(datum.id);
-    let sideEl = utils.createNode('div');
-    let tweet = new Tweet(datum, sideEl);
-    let entryEl = utils.createNode('div');
-    sideEl.setAttribute('class', 'side');
-    entryEl.setAttribute('class', 'entry');
-    listEl.appendChild(entryEl);
-    entryEl.appendChild(sideEl);
+    let entry = utils.createNode('div');
+    entry.setAttribute('class', 'entry');
+    let tweet = new Tweet(datum, entry);
+    list.appendChild(entry);
     tweets.push(tweet);
     tweet.render();
   }
-  if (listEl.offsetHeight < win.innerHeight) {
+  if (list.offsetHeight < win.innerHeight) {
     let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
     http.request(url, responseHandler);
   }

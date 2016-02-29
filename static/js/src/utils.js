@@ -30,6 +30,15 @@ export default {
   },
 
   /**
+   * @param {string} str - Element selector.
+   * @param {HTMLElement} element - Parent element.
+   * @returns {NodeList}
+   */
+  query(str, element = doc) {
+    return element.querySelector(str);
+  },
+
+  /**
    * Creates HTML element.
    * @param {string} node - HTML element tag name.
    * @param {Object<string, string|number|boolean>=} attrs - Map of element attributes.

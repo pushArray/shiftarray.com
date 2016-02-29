@@ -61,7 +61,10 @@ export default class Tweet {
       text = text.replace(url.url, url.display_url);
     });
 
-    if (Array.isArray(media)) {
+    if (Array.isArray(media) && media.length) {
+      let mediaEl = utils.query('.media', this.parent);
+      mediaEl.style.backgroundImage = `url(${media[0].media_url})`;
+      mediaEl.classList.add('rendered');
       media.forEach(media => {
         text = text.replace(media.url, '');
       });
