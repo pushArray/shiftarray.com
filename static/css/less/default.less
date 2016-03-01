@@ -65,67 +65,65 @@ body.busy {
 
 .preloader, .list {
   width: @column-width;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 .list {
   .block;
   .relative;
-  .no-overflow;
   .border-box;
-
-  background: #fafafa;
-  color: #2b2d32;
-  padding: 0;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, .25), -2px -2px 2px rgba(0, 0, 0, .15);
 }
 
 .entry {
-  .no-overflow;
   .border-box;
-
-  &:not(:last-child) {
-    &:after {
-      content: '';
-      position: absolute;
-      border-bottom: 1px solid;
-      border-bottom: 1px solid #f1f1f1;
-      left: 2px;
-      right: 2px;
-    }
-  }
-
-  .side {
-    .relative;
-    .block;
-
-    padding-left: 75px;
-    border-left: 2px solid;
-    border-right: 2px solid;
-    overflow: hidden;
-  }
+  .block;
+  .relative;
 }
 
 .tweet {
   .border-box;
-  .clearfix;
   .block;
   .relative;
 
   margin: 20px 0;
-  padding-right: 15px;
+  padding: 10px 0;
+
+  .media {
+    .relative;
+    .hidden;
+    .no-overflow;
+    .transition(~"height .20s");
+
+    height: 150px;
+    background-origin: content-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: @font-color;
+    background-position: center top;
+
+    &:hover {
+      height: 300px;
+    }
+
+    &.rendered {
+      .block;
+    }
+  }
 
   .text {
     .relative;
     .block;
 
-    max-width: 560px;
-    font-size: 26px;
-    line-height: 32px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    border-left: 2px solid;
+    font-size: 18px;
+    line-height: 24px;
     font-style: normal;
-    margin: 10px;
     word-wrap: break-word;
     visibility: hidden;
+    padding: 20px;
+    z-index: 1;
 
     &.rendered {
       visibility: visible;
@@ -134,52 +132,76 @@ body.busy {
     .line {
       .block;
       .relative;
+      .no-wrap;
 
-      white-space: nowrap;
       text-align: left;
 
       &.inline {
         .inline-block;
         .relative;
+
         clear: none;
       }
     }
   }
 
   .user-container {
-    .clearfix;
-    .relative;
-    .block;
+    .flex-box;
 
-    font-size: 14px;
+    align-items: center;
     color: inherit;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 
-    .user-avatar {
-      .no-overflow;
-      .absolute;
+    .user-card {
+      .flex-box;
 
-      margin-right: 15px;
-      width: 48px;
-      height: 48px;
-      top: 0;
-      left: -60px;
-      border-radius: 3px;
-      background: no-repeat center;
-      background-size: cover;
-    }
+      flex: 1;
+      align-items: center;
 
-    .username, .screenname {
-      text-overflow: ellipsis;
-      margin-right: 10px;
-    }
+      .user-avatar {
+        .no-overflow;
+        .relative;
 
-    .screenname {
-      color: rgb(157, 174, 181);
+        display: flex;
+        margin-right: 10px;
+        width: 48px;
+        height: 48px;
+        border-radius: 3px;
+        background: no-repeat center;
+        background-size: cover;
+      }
+
+      .user {
+        .no-wrap;
+
+        flex: 1;
+
+        .username {
+          .relative;
+          .block;
+
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: bold;
+          color: inherit;
+        }
+
+        .screenname {
+          .relative;
+          .block;
+
+          font-size: 14px;
+          line-height: 20px;
+          color: inherit;
+        }
+      }
     }
 
     .timestamp {
-      flex: 1;
+      .no-wrap;
+
+      flex: 0;
+      color: inherit;
       text-align: right;
     }
   }

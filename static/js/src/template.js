@@ -30,27 +30,30 @@ export default class Template {
    */
   parse() {
     let d = this.data;
+    let color = d.profileColor;
     let headBody = `
-        <div class="user-avatar"
-             style="background: ${d.profileColor} url(${d.userImage});">
-        </div>
-        <div class="flex-box no-wrap">
-            <div class="username">
+        <div class="user-card">
+          <div class="user-avatar"
+               style="background: ${color} url(${d.userImage});">
+          </div>
+          <div class="user">
+            <div class="username"
+                 style="color: ${color}">
                 ${d.username}
             </div>
             <div class="screenname">
                 @${d.screenName}
             </div>
-            <div class="timestamp"
-                 title="${d.fullDate}">
-                ${d.shortDate}
-            </div>
+          </div>
+        </div>
+        <div class="timestamp"
+             title="${d.fullDate}">
+            ${d.shortDate}
         </div>`;
     let head = '';
     if (d.protected) {
       head = `
-        <span class="user-container"
-              style="color: ${d.profileColor}">
+        <span class="user-container">
            ${headBody}
         </span>
       `;
@@ -58,14 +61,15 @@ export default class Template {
       head = `
           <a href="${d.url}"
              target="_blank"
-             class="user-container"
-             style="color: ${d.profileColor}">
+             class="user-container">
               ${headBody}
           </a>`;
     }
     let template = `
         ${head}
-        <div class="text">
+        <div class="media"></div>
+        <div class="text"
+             style="border-color: ${color}">
           ${this.data.text}
         </div>`;
     this.template = template.trim();

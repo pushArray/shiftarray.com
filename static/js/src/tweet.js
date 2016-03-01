@@ -3,6 +3,16 @@ import utils from './utils';
 
 export default class Tweet {
 
+  static createLink(text, url, title, color) {
+    return `
+        <a style="color:${color};"
+           title="${title || text}"
+           target="_blank"
+           href="${url}">
+            ${text}
+        </a>`;
+  }
+
   /**
    * @param {SimpleTweet} data - Tweet data object.
    * @param {Element} parent - Parent element where Tweet instance element will be attached.
@@ -51,7 +61,10 @@ export default class Tweet {
       text = text.replace(url.url, url.display_url);
     });
 
-    if (Array.isArray(media)) {
+    if (Array.isArray(media) && media.length) {
+      let mediaEl = utils.query('.media', this.parent);
+      mediaEl.style.backgroundImage = `url(${media[0].media_url})`;
+      mediaEl.classList.add('rendered');
       media.forEach(media => {
         text = text.replace(media.url, '');
       });
@@ -61,36 +74,17 @@ export default class Tweet {
     let linkColor = data.profileColor;
     urls.forEach(url => {
       let str = url.display_url;
-      let content = `
-        <a style="color:${linkColor};"
-           title="${str}"
-           target="_blank"
-           href="${url.expanded_url}">
-            ${str}
-        </a>`;
-      text = text.replace(str, content);
+      text = text.replace(str, Tweet.createLink(str, url.expanded_url, str, linkColor));
     });
     userMentions.forEach(mention => {
       let str = `@${mention.screen_name}`;
-      let content = `
-        <a style="color:${linkColor};"
-           title="${str}"
-           target="_blank"
-           href="//twitter.com/${mention.screen_name}">
-            ${str}
-        </a>`;
-      text = text.replace(str, content);
+      let url = `//twitter.com/${mention.screen_name}`;
+      text = text.replace(str, Tweet.createLink(str, url, str, linkColor));
     });
     hashtags.forEach(hash => {
       let str = `#${hash.text}`;
-      let content = `
-        <a style="color:${linkColor};"
-           title="${str}"
-           target="_blank"
-           href="//twitter.com/search?q=%23${hash.text}&src=hash">
-            ${str}
-        </a>`;
-      text = text.replace(str, content);
+      let url = `//twitter.com/search?q=%23${hash.text}&src=hash`;
+      text = text.replace(str, Tweet.createLink(str, url, str, linkColor));
     });
 
     lineEl.innerHTML = text;
