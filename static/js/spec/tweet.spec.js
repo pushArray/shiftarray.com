@@ -50,4 +50,11 @@ describe('tweet.js', () => {
     tweet.render();
     isValidTweet(tweet, data);
   });
+
+  it('tweet with media', () => {
+    let data = sharedTestData.getTweetWithMedia();
+    let tweet = new Tweet(data, body);
+    tweet.render();
+    isValidTweet(tweet, data);
+  });
 });

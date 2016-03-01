@@ -107,5 +107,73 @@ export default {
       },
       'protected': false
     }
+  },
+  getTweetWithMedia() {
+    return {
+      'id': '558362854269935617',
+      'username': 'JavaScript Live',
+      'url': 'https://twitter.com/JavaScriptDaily/statuses/558362854269935617',
+      'timestamp': 'Thu Jan 22 20:37:32 +0000 2015',
+      'screenName': 'JavaScriptDaily',
+      'text': 'Elevator Saga is a game where you program an elevator system in JavaScript: ' +
+        'http://t.co/EvvS36jQYs (this is fun) http://t.co/FEXmxMX1mW',
+      'userImage': '/images/twitter/JavaScriptDaily.jpg',
+      'profileColor': '#177A6E',
+      'entities': {
+        'hashtags': [],
+        'symbols': [],
+        'user_mentions': [],
+        'urls': [
+          {
+            'url': 'http://t.co/EvvS36jQYs',
+            'expanded_url': 'http://play.elevatorsaga.com/',
+            'display_url': 'play.elevatorsaga.com',
+            'indices': [
+              76,
+              98
+            ]
+          }
+        ],
+        'media': [
+          {
+            'id': 558362854144098300,
+            'id_str': '558362854144098304',
+            'indices': [
+              113,
+              135
+            ],
+            'media_url': 'http://pbs.twimg.com/media/B7-0DrkIQAAeb56.png',
+            'media_url_https': 'https://pbs.twimg.com/media/B7-0DrkIQAAeb56.png',
+            'url': 'http://t.co/FEXmxMX1mW',
+            'display_url': 'pic.twitter.com/FEXmxMX1mW',
+            'expanded_url': 'http://twitter.com/JavaScriptDaily/status/558362854269935617/photo/1',
+            'type': 'photo',
+            'sizes': {
+              'small': {
+                'w': 340,
+                'h': 213,
+                'resize': 'fit'
+              },
+              'large': {
+                'w': 1024,
+                'h': 642,
+                'resize': 'fit'
+              },
+              'medium': {
+                'w': 600,
+                'h': 376,
+                'resize': 'fit'
+              },
+              'thumb': {
+                'w': 150,
+                'h': 150,
+                'resize': 'crop'
+              }
+            }
+          }
+        ]
+      },
+      'protected': false
+    }
   }
 }
