@@ -10,6 +10,11 @@ let idCache = [];
 let tweets = [];
 let list = utils.getId('list');
 
+function loadNext() {
+  let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
+  http.request(url, responseHandler);
+}
+
 /**
  * @param {TwitterError|Array<SimpleTweet>} data - Tweets data.
  */
@@ -37,16 +42,14 @@ function responseHandler(data) {
     tweet.render();
   }
   if (list.offsetHeight < win.innerHeight) {
-    let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
-    http.request(url, responseHandler);
+    loadNext();
   }
 }
 
 function windowScroll() {
   let threshold = win.pageYOffset >= (doc.documentElement.scrollHeight - win.innerHeight) * 0.80;
   if (!http.busy && threshold) {
-    let url = http.buildUrl(baseUrl, idCache[idCache.length - 1], 10);
-    http.request(url, responseHandler);
+    loadNext();
   }
 }
 

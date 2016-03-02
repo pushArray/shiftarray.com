@@ -33,8 +33,8 @@ describe('utils.js', () => {
     testDate = new Date(
       currDate.getFullYear(),
       currDate.getMonth(),
-      currDate.getDate() - 2,
-      currDate.getHours(),
+      currDate.getDate(),
+      currDate.getHours() - 50,
       currDate.getMinutes(),
       currDate.getSeconds(),
       currDate.getSeconds()

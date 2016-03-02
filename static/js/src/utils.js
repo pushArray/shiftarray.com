@@ -7,14 +7,8 @@ const htmlCharMap = {
   'lt': '<',
   'gt': '>'
 };
-const periods = {
-  month: 2628000,
-  w: 604800,
-  d: 86400,
-  h: 3600,
-  m: 60,
-  s: 1
-};
+const pn = [2628000, 604800, 86400, 3600, 60, 1];
+const ps = ['M', 'w', 'd', 'h', 'm', 's'];
 const months = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
@@ -75,20 +69,17 @@ export default {
     let currDate = new Date();
     const diff = parseInt((currDate.getTime() - date.getTime()) / 1000, 10);
     let ret = '';
-    if (diff > periods.month) {
-      ret = months[date.getMonth()] + ' ' + date.getDate();
+    if (diff > pn[0]) {
+      ret = `${months[date.getMonth()]} ${date.getDate()}`;
       if (date.getFullYear() !== currDate.getFullYear()) {
-        ret += ', ' + String(date.getFullYear());
+        ret += ', ' + date.getFullYear();
       }
     } else {
-      for (let prop in periods) {
-        if (periods.hasOwnProperty(prop)) {
-          let val = periods[prop];
-          if (diff >= val) {
-            let time = parseInt(diff / val, 10);
-            ret += time + prop;
-            break;
-          }
+      for (let i = 0; i < pn.length; i++) {
+        let val = pn[i];
+        if (diff >= val) {
+          ret += parseInt(diff / val, 10) + ps[i];
+          break;
         }
       }
     }
