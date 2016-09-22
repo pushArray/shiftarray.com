@@ -1,6 +1,6 @@
 # shiftarray.com
 
-[![Build Status](https://travis-ci.org/logashoff/shiftarray.com.svg?branch=master)](https://travis-ci.org/logashoff/shiftarray.com) [![Dependency Status](https://david-dm.org/logashoff/shiftarray.com.svg)](https://david-dm.org/logashoff/shiftarray.com) [![devDependency Status](https://david-dm.org/logashoff/shiftarray.com/dev-status.svg)](https://david-dm.org/logashoff/shiftarray.com#info=devDependencies) [![Code Climate](https://codeclimate.com/github/logashoff/shiftarray.com/badges/gpa.svg)](https://codeclimate.com/github/logashoff/shiftarray.com)
+[![Build Status](https://travis-ci.org/pusharray/shiftarray.com.svg?branch=master)](https://travis-ci.org/pusharray/shiftarray.com) [![Dependency Status](https://david-dm.org/pusharray/shiftarray.com.svg)](https://david-dm.org/pusharray/shiftarray.com) [![devDependency Status](https://david-dm.org/pusharray/shiftarray.com/dev-status.svg)](https://david-dm.org/pusharray/shiftarray.com#info=devDependencies) [![Code Climate](https://codeclimate.com/github/pusharray/shiftarray.com/badges/gpa.svg)](https://codeclimate.com/github/pusharray/shiftarray.com)
 
 ## Usage
 

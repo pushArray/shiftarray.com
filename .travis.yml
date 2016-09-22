@@ -1,10 +1,8 @@
 sudo: false
 language: node_js
 node_js:
-  - "4.1"
+  - "4.5"
 before_script:
   - npm install
 script:
   - npm run build
-  - npm run min
-  - npm test

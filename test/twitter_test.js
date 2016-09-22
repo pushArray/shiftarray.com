@@ -2,7 +2,7 @@ const chai = require('chai');
 const mockFs = require('mock-fs');
 const tweets1 = require('./data/tweets1.json');
 const tweets2 = require('./data/tweets2.json');
-const twitter = require('../twitter');
+const twitter = require('../lib/twitter');
 
 const expect = chai.expect;
 
