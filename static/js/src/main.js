@@ -30,7 +30,7 @@ function responseHandler(data) {
   for (let i = 0; i < data.length; i++) {
     /** @type {SimpleTweet} */
     let datum = data[i];
-    if (!!~idCache.indexOf(datum.id)) {
+    if (idCache.indexOf(datum.id) > -1) {
       continue;
     }
     idCache.push(datum.id);

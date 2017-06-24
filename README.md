@@ -4,7 +4,7 @@
 
 ## Usage
 
-Requires Node.js 4.1 or higher.
+Requires Node.js 6.11.0 or higher.
 
 For Twitter API to work ```TWITTER_CONSUMER_KEY```, ```TWITTER_CONSUMER_SECRET```, ```TWITTER_ACCESS_TOKEN_KEY``` and ```TWITTER_ACCESS_TOKEN_SECRET``` need to be set as enviroment variables or hard-coded inside ```twitter.js```. Twitter user id is hard-coded inside ```twitter.js``` and is used as part of Twitter API request parameters. Change it to get a different user timeline.
 
