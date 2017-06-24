@@ -1,0 +1,17 @@
+{
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "mocha": true,
+        "jasmine": true
+    },
+    "rules": {
+        // Additional, per-project rules...
+    }
+}

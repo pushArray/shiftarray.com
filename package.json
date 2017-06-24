@@ -1,55 +1,33 @@
 {
   "name": "shiftarray.com",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "description": "shiftarray.com source code.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:logashoff/shiftarray.com.git"
   },
+  "scripts": {
+    "build": "webpack --progress --profile",
+    "less": "lessc --clean-css ./static/less/all.less ./static/bin/all.css",
+    "lint": "eslint ./static/js ./lib",
+    "test": "karma start && mocha ./test/*_test.js"
+  },
   "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
     "colors": "^1.1.2",
-    "express": "^4.13.4",
+    "express": "^4.15.3",
     "jade": "^1.11.0",
-    "twitter": "^1.2.5"
+    "less": "^2.7.2",
+    "less-plugin-clean-css": "^1.5.1",
+    "rimraf": "^2.6.1",
+    "twitter": "^1.7.1",
+    "webpack": "^2.6.1"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.5.0",
-    "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "browserify-istanbul": "^1.0.0",
-    "chai": "^3.5.0",
-    "chai-spies": "^0.7.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-cssnano": "^2.1.0",
-    "gulp-jscs": "^3.0.2",
-    "gulp-jshint": "^2.0.0",
-    "gulp-less": "^3.0.5",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.2",
-    "isparta": "^4.0.0",
-    "istanbul": "^0.4.2",
-    "karma": "^0.13.19",
-    "karma-browserify": "^5.0.1",
-    "karma-chai": "^0.1.0",
-    "karma-coverage": "^0.5.3",
-    "karma-jasmine": "^0.3.7",
-    "karma-mocha": "^0.2.1",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-story-reporter": "^0.3.1",
-    "mocha": "^2.4.5",
-    "mock-fs": "^3.7.0",
-    "phantomjs": "^2.1.3",
-    "phantomjs-prebuilt": "^2.1.4",
-    "sinon": "^1.17.3",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
-  },
-  "scripts": {
-    "build": "gulp build",
-    "min": "gulp min",
-    "watch": "gulp watch",
-    "test": "karma start && mocha ./test/*_test.js"
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.1.0"
   }
 }
